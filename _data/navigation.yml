@@ -1,15 +1,3 @@
 # Site navigation links
-- title: Home
-  url: /
-
-- title: Blog
-  url: /blog/
-
 - title: Projects
   url: /projects/
-
-- title: About
-  url: /about/
-
-- title: 메모장
-  url: http://zang09.github.io
