@@ -11,7 +11,7 @@ tags:
 comments: false
 ---
 
-<center><img src="../assets/img/probabilistic_robotics/book_cover.png" width="20%" height="20%"></center>
+<center><img src="../assets/img/probabilistic_robotics/book_cover.png" width="250px" height="300px"></center>
 <br>
 
 ## [- 확률론적 로보틱스 2장](https://zang09.github.io/probabilistic-robotics-2/)
