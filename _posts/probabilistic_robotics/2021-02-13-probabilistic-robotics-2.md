@@ -7,7 +7,7 @@ date: 2021-02-13
 
 tags:
   - [Robotics, SLAM, Probabilistic]
-comments: false
+comments: true
 ---
 
 # 2장. 재귀 스테이트 추정
