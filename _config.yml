@@ -7,7 +7,7 @@ words_per_minute:   200
 logo:               'assets/img/logo.png'
 background:         'assets/img/placeholder-big.jpg'
 tiled_bg:           false   # Set this true if you want to tile your background image, otherwise it will be covered
-locale:             en_US
+locale:             ko_kr
 url:                http://localhost:4000
 url:                //zang09.github.io
 
@@ -27,7 +27,7 @@ sass:
   style:            compressed
 
 # Comments
-disqus_shortname:   taylantatli
+disqus_shortname:   haebum
 
 # Social
 # if you don't have any of social below, comment the line.
