@@ -39,7 +39,17 @@ layout: default
     <br>
     {% endif %}
 
-    <div class="clearfix">{{ content }}<br></div>
+    <!-- Contents -->
+    <div class="clearfix">{{ content }}
+
+    <!-- Social -->
+    {% if page.social %}
+      <div class="social">
+        <div class="contact-icons">{% include social.liquid %}</div>
+      </div>
+    {% endif %}
+    <br><br>
+    </div>
 
     <!-- News -->
     {% if page.announcements and page.announcements.enabled %}
@@ -65,7 +75,7 @@ layout: default
         <a href="{{ '/publications/' | relative_url }}" style="color: inherit">Publications</a>
       </h2>
       {% include selected_papers.liquid %}
-    <br>
+    <br><br>
     {% endif %}
 
     <!-- Awards -->
@@ -75,16 +85,7 @@ layout: default
       </h2>
       {% include honors_and_awards.liquid only_selected=true %}
     <br>
-    {% endif %}
-
-    <!-- Social -->
-    {% if page.social %}
-      <div class="social">
-        <div class="contact-icons">{% include social.liquid %}</div>
-
-        <div class="contact-note">{{ site.contact_note }}</div>
-      </div>
-    {% endif %}
+    {% endif %}    
 
     {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
       {% include newsletter.liquid center=true %}
