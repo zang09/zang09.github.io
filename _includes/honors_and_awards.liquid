@@ -1,8 +1,8 @@
 <div class="honors">
-  {% assign all_items = site.honors_and_awards | sort: "date" | reverse %}
+  {% assign all_items = site.honors_and_awards | sort: 'date' | reverse %}
 
   {% if include.only_selected %}
-    {% assign items = all_items | where_exp: "i", "i.selected == true" %}
+    {% assign items = all_items | where_exp: 'i', 'i.selected == true' %}
   {% else %}
     {% assign items = all_items %}
   {% endif %}
@@ -39,10 +39,26 @@
                   <a href="{{ item.video }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Video</a>
                 {% endif %}
                 {% if item.certificate %}
-                  <a href="{{ item.certificate }}" class="btn btn-sm z-depth-0" role="button" {% if item.certificate contains '://' %}target="_blank"{% endif %}>Certificate</a>
+                  <a
+                    href="{{ item.certificate }}"
+                    class="btn btn-sm z-depth-0"
+                    role="button"
+                    {% if item.certificate contains '://' %}
+                      target="_blank"
+                    {% endif %}
+                    >Certificate</a
+                  >
                 {% endif %}
                 {% if item.photos %}
-                  <a href="{{ item.photos }}" class="btn btn-sm z-depth-0" role="button" {% if item.photos contains '://' %}target="_blank"{% endif %}>Photos</a>
+                  <a
+                    href="{{ item.photos }}"
+                    class="btn btn-sm z-depth-0"
+                    role="button"
+                    {% if item.photos contains '://' %}
+                      target="_blank"
+                    {% endif %}
+                    >Photos</a
+                  >
                 {% endif %}
               </div>
             </td>

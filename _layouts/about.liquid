@@ -36,19 +36,21 @@ layout: default
           <div class="more-info">{{ page.profile.more_info }}</div>
         {% endif %}
       </div>
-    <br>
+      <br>
     {% endif %}
 
     <!-- Contents -->
-    <div class="clearfix">{{ content }}
+    <div class="clearfix">
+      {{ content }}
 
-    <!-- Social -->
-    {% if page.social %}
-      <div class="social">
-        <div class="contact-icons">{% include social.liquid %}</div>
-      </div>
-    {% endif %}
-    <br><br>
+      <!-- Social -->
+      {% if page.social %}
+        <div class="social">
+          <div class="contact-icons">{% include social.liquid %}</div>
+        </div>
+      {% endif %}
+      <br>
+      <br>
     </div>
 
     <!-- News -->
@@ -57,7 +59,7 @@ layout: default
         <a href="{{ '/news/' }}" style="color: inherit">News</a>
       </h2>
       {% include news.liquid limit=true %}
-    <br>
+      <br>
     {% endif %}
 
     <!-- Latest posts -->
@@ -66,7 +68,7 @@ layout: default
         <a href="{{ '/blog/' | relative_url }}" style="color: inherit">Latest posts</a>
       </h2>
       {% include latest_posts.liquid %}
-    <br>
+      <br>
     {% endif %}
 
     <!-- Selected papers -->
@@ -75,7 +77,8 @@ layout: default
         <a href="{{ '/publications/' | relative_url }}" style="color: inherit">Publications</a>
       </h2>
       {% include selected_papers.liquid %}
-    <br><br>
+      <br>
+      <br>
     {% endif %}
 
     <!-- Awards -->
@@ -84,8 +87,8 @@ layout: default
         <a href="{{ '/honors_and_awards/' }}" style="color: inherit">Honors & Awards (Selected)</a>
       </h2>
       {% include honors_and_awards.liquid only_selected=true %}
-    <br>
-    {% endif %}    
+      <br>
+    {% endif %}
 
     {% if site.newsletter and site.newsletter.enabled and site.footer_fixed %}
       {% include newsletter.liquid center=true %}

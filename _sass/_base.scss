@@ -401,18 +401,18 @@ ul.task-list input[type="checkbox"] {
   text-align: center;
 
   .contact-icons {
-    font-size: 3.0rem;
+    font-size: 3rem;
 
     a {
       img {
-        width: 2.0rem;
-        height: 2.0rem;
+        width: 2rem;
+        height: 2rem;
         margin-bottom: 1rem;
       }
 
       svg {
         width: 2.5rem;
-        height: 3.0rem;
+        height: 3rem;
         margin-bottom: 0.5rem;
 
         image {
@@ -433,13 +433,13 @@ ul.task-list input[type="checkbox"] {
           color: var(--global-theme-color);
         }
       }
-    }    
+    }
 
     a:not(:last-child)::after {
       content: " ";
       display: inline-block;
-      margin: 0 1rem;   // / 앞뒤 간격
-      color: var(--global-text-color);  // 아이콘 색상과 맞춤
+      margin: 0 1rem; // / 앞뒤 간격
+      color: var(--global-text-color); // 아이콘 색상과 맞춤
     }
   }
 
