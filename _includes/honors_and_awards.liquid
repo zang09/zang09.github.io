@@ -14,9 +14,13 @@
           <tr>
             <td>
               {% if item.external_url %}
-                <a class="news-title" href="{{ item.external_url | relative_url }}">{{ item.title }}</a>
+                <a class="news-title" href="{{ item.external_url | relative_url }}"
+                  ><strong>{{ item.title }}</strong></a
+                >
               {% else %}
-                <span class="news-title">{{ item.title }}</span>
+                <span class="news-title"
+                  ><strong>{{ item.title }}</strong></span
+                >
               {% endif %}
 
               {% if item.date or item.awarder %}
@@ -32,35 +36,16 @@
                 </div>
               {% endif %}
 
-              <div class="links">
-                {% if item.video and site.enable_video_embedding %}
-                  <a class="abstract btn btn-sm z-depth-0" role="button">Video</a>
-                {% elsif item.video %}
-                  <a href="{{ item.video }}" class="btn btn-sm z-depth-0" role="button" target="_blank">Video</a>
-                {% endif %}
-                {% if item.certificate %}
-                  <a
-                    href="{{ item.certificate }}"
-                    class="btn btn-sm z-depth-0"
-                    role="button"
-                    {% if item.certificate contains '://' %}
-                      target="_blank"
-                    {% endif %}
-                    >Certificate</a
-                  >
-                {% endif %}
-                {% if item.photos %}
-                  <a
-                    href="{{ item.photos }}"
-                    class="btn btn-sm z-depth-0"
-                    role="button"
-                    {% if item.photos contains '://' %}
-                      target="_blank"
-                    {% endif %}
-                    >Photos</a
-                  >
-                {% endif %}
-              </div>
+              {% if item.video or item.news %}
+                <div class="links mt-1">
+                  {% if item.video %}
+                    <a href="{{ item.video | relative_url }}" class="btn btn-sm z-depth-0" role="button">Video</a>
+                  {% endif %}
+                  {% if item.news %}
+                    <a href="{{ item.news | relative_url }}" class="btn btn-sm z-depth-0" role="button">Article</a>
+                  {% endif %}
+                </div>
+              {% endif %}
             </td>
           </tr>
         {% endfor %}

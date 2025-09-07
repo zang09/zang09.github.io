@@ -884,6 +884,27 @@ footer.sticky-bottom {
   }
 }
 
+// Honors
+.honors {
+  .links {
+    a.btn {
+      text-decoration: none;
+      color: var(--global-text-color);
+      border: 1px solid var(--global-text-color);
+      padding-left: 1rem;
+      padding-right: 1rem;
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+      margin-left: 0;
+
+      &:hover {
+        color: var(--global-theme-color);
+        border-color: var(--global-theme-color);
+      }
+    }
+  }
+}
+
 // Rouge Color Customization
 figure.highlight {
   margin: 0 0 1rem;
