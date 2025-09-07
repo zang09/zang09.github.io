@@ -68,12 +68,12 @@ ninja.data = [{
           section: "Honors_and_awards",handler: () => {
               window.location.href = "/honors_and_awards/2017_robocup_iran/";
             },},{id: "honors_and_awards-winner-irc-intelligence-humanoid-robot-sports",
-          title: 'Winner, IRC – Intelligence Humanoid Robot Sports',
+          title: 'Winner, IRC (Intelligence Humanoid Robot Sports)',
           description: "",
           section: "Honors_and_awards",handler: () => {
               window.location.href = "/honors_and_awards/2017_irc/";
-            },},{id: "honors_and_awards-achievement-award-spread-the-name-of-kwangwoon-university-throughout-the-year",
-          title: 'Achievement Award – Spread the name of KwangWoon University throughout the year',
+            },},{id: "honors_and_awards-achievement-award-spread-the-name-throughout-the-year",
+          title: 'Achievement Award (Spread the name throughout the year)',
           description: "",
           section: "Honors_and_awards",handler: () => {
               window.location.href = "/honors_and_awards/2017_kwangwoon/";
@@ -93,16 +93,19 @@ ninja.data = [{
           section: "Honors_and_awards",handler: () => {
               window.location.href = "/honors_and_awards/2018_rviz/";
             },},{id: "honors_and_awards-outstanding-mentor-samsung-electronics-junior-software-creation-contest",
-          title: 'Outstanding Mentor – Samsung Electronics Junior Software Creation Contest',
+          title: 'Outstanding Mentor (Samsung Electronics Junior Software Creation Contest)',
           description: "",
           section: "Honors_and_awards",handler: () => {
               window.location.href = "/honors_and_awards/2019_samsung/";
-            },},{id: "honors_and_awards-m-s-fellowship-sep-2024-aug-2025",
-          title: 'M.S. Fellowship (Sep 2024 – Aug 2025)',
+            },},{id: "honors_and_awards-m-s-fellowship",
+          title: 'M.S. Fellowship',
           description: "",
           section: "Honors_and_awards",handler: () => {
               window.location.href = "/honors_and_awards/2024_ms_fellow/";
-            },},{id: "news-a-preprint-of-our-targetless-lidar-camera-calibration-method-has-been-released-on-arxiv",
+            },},{id: "news-fellowship-from-the-korean-ministry-of-education-awarded-to-750-master-s-students-nationwide",
+          title: 'Fellowship from the Korean Ministry of Education, awarded to 750 master’s students nationwide....',
+          description: "",
+          section: "News",},{id: "news-a-preprint-of-our-targetless-lidar-camera-calibration-method-has-been-released-on-arxiv",
           title: 'A preprint of our Targetless LiDAR-Camera Calibration method has been released on arXiv!...',
           description: "",
           section: "News",},{id: "news-a-preprint-on-the-3dgs-densification-sampling-strategy-has-been-released-on-arxiv",
