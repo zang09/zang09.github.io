@@ -740,18 +740,15 @@ footer.sticky-bottom {
     margin-top: 0;
 
     li {
-      margin-bottom: 1rem;
-
-      .preview {
-      }
+      margin-bottom: 2rem;
 
       .abbr {
-        margin-bottom: 0.5rem;
+        margin-top: 0.25rem;
 
         abbr {
           display: inline-block;
           background-color: var(--global-theme-color);
-          margin-bottom: 0.5rem;
+          margin-top: 0.25rem;
           color: var(--global-card-bg-color) !important;
 
           a {
@@ -875,6 +872,7 @@ footer.sticky-bottom {
         border-color: var(--global-text-color);
       }
     }
+
     div.award.hidden {
       border: dashed 1px var(--global-bg-color);
     }
