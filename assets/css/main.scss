@@ -23,3 +23,13 @@ $max-content-width: {{ site.max_width }};
   "tabler-icons/tabler-icons-filled.scss",
   "tabler-icons/tabler-icons-outline.scss"
 ;
+
+/* 최후의 안전장치(원인 못 찾은 잔여 1~2px 넘침 차단) */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after { box-sizing: inherit; }
