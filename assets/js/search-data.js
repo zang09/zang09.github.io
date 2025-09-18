@@ -90,19 +90,19 @@ ninja.data = [{
           description: "",
           section: "Honors_and_awards",handler: () => {
               window.location.href = "/honors_and_awards/2019_samsung/";
-            },},{id: "honors_and_awards-m-s-fellowship",
-          title: 'M.S. Fellowship',
+            },},{id: "honors_and_awards-m-s-funding",
+          title: 'M.S. Funding',
           description: "",
           section: "Honors_and_awards",handler: () => {
-              window.location.href = "/honors_and_awards/2024_ms_fellow/";
-            },},{id: "news-fellowship-from-the-korean-ministry-of-education-awarded-to-750-master-s-students-nationwide",
-          title: 'Fellowship from the Korean Ministry of Education, awarded to 750 master’s students nationwide....',
+              window.location.href = "/honors_and_awards/2024_ms_funding/";
+            },},{id: "news-funded-by-the-korean-ministry-of-education-awarded-to-750-master-s-students-nationwide",
+          title: 'Funded by the Korean Ministry of Education, awarded to 750 master’s students nationwide....',
           description: "",
           section: "News",},{id: "news-a-preprint-of-our-targetless-lidar-camera-calibration-method-has-been-released-on-arxiv",
           title: 'A preprint of our Targetless LiDAR-Camera Calibration method has been released on arXiv!...',
           description: "",
-          section: "News",},{id: "news-a-preprint-on-the-3dgs-densification-sampling-strategy-has-been-released-on-arxiv",
-          title: 'A preprint on the 3DGS densification sampling strategy has been released on arXiv!...',
+          section: "News",},{id: "news-new-our-paper-on-3dgs-densification-sampling-has-been-accepted-to-neurips-2025",
+          title: 'NEW! Our paper on 3DGS densification sampling has been accepted to NeurIPS 2025!...',
           description: "",
           section: "News",},{
         id: 'social-email',
