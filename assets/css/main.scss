@@ -24,6 +24,15 @@ $max-content-width: {{ site.max_width }};
   "tabler-icons/tabler-icons-outline.scss"
 ;
 
+html {
+  font-size: 15px; // 원하는 기본 폰트 크기로 조정
+  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+}
+head, body {
+  font-size: 1rem;
+  font-family: inherit;
+}
+
 /* 최후의 안전장치(원인 못 찾은 잔여 1~2px 넘침 차단) */
 html, body {
   overflow-x: hidden;
