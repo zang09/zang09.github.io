@@ -101,8 +101,8 @@ ninja.data = [{
           section: "News",},{id: "news-our-paper-on-3dgs-densification-sampling-has-been-accepted-to-neurips-2025",
           title: 'Our paper on 3DGS densification sampling has been accepted to NeurIPS 2025!',
           description: "",
-          section: "News",},{id: "news-new-our-paper-on-targetless-lidar-camera-calibration-has-been-accepted-to-ra-l",
-          title: 'NEW! Our paper on targetless LiDAR–camera calibration has been accepted to RA-L!',
+          section: "News",},{id: "news-new-our-paper-on-targetless-lidar-camera-calibration-has-been-accepted-to-ra-l-2026",
+          title: 'NEW! Our paper on targetless LiDAR–camera calibration has been accepted to RA-L 2026!...',
           description: "",
           section: "News",},{
         id: 'social-email',
