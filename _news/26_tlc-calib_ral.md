@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-<span style="color: red;">NEW!</span> Our paper on targetless LiDAR–camera calibration has been accepted to <b>RA-L 2026!</b>
+Our paper on [targetless LiDAR–camera calibration](https://www.haebeom.com/tlc-calib-site/) has been accepted to <b>RA-L 2026!</b>
