@@ -90,11 +90,21 @@ ninja.data = [{
           description: "",
           section: "Honors_and_awards",handler: () => {
               window.location.href = "/honors_and_awards/2019_samsung/";
-            },},{id: "honors_and_awards-m-s-funding",
-          title: 'M.S. Funding',
+            },},{id: "honors_and_awards-snu-ai-fellowship-m-s-program",
+          title: 'SNU AI Fellowship (M.S. Program)',
+          description: "",
+          section: "Honors_and_awards",handler: () => {
+              window.location.href = "/honors_and_awards/2023_ms_scholar/";
+            },},{id: "honors_and_awards-m-s-research-funding",
+          title: 'M.S. Research Funding',
           description: "",
           section: "Honors_and_awards",handler: () => {
               window.location.href = "/honors_and_awards/2024_ms_funding/";
+            },},{id: "honors_and_awards-jeonghun-foundation-ph-d-scholarship",
+          title: 'Jeonghun Foundation Ph.D. Scholarship',
+          description: "",
+          section: "Honors_and_awards",handler: () => {
+              window.location.href = "/honors_and_awards/2026_phd_scholar/";
             },},{id: "news-funded-by-the-korean-ministry-of-education-awarded-to-750-master-s-students-nationwide",
           title: 'Funded by the Korean Ministry of Education, awarded to 750 master’s students nationwide....',
           description: "",
@@ -104,8 +114,11 @@ ninja.data = [{
           section: "News",},{id: "news-our-paper-on-targetless-lidar-camera-calibration-has-been-accepted-to-ra-l-2026",
           title: 'Our paper on targetless LiDAR–camera calibration has been accepted to RA-L 2026!',
           description: "",
-          section: "News",},{id: "news-new-tlc-calib-will-be-presented-at-icra-2026",
-          title: 'NEW! TLC-Calib will be presented at ICRA 2026!',
+          section: "News",},{id: "news-tlc-calib-will-be-presented-at-icra-2026",
+          title: 'TLC-Calib will be presented at ICRA 2026!',
+          description: "",
+          section: "News",},{id: "news-new-selected-as-a-jeonghun-foundation-scholar-for-ph-d-studies",
+          title: 'NEW! Selected as a Jeonghun Foundation Scholar for Ph.D. studies.',
           description: "",
           section: "News",},{
         id: 'social-email',
