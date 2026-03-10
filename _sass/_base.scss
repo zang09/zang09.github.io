@@ -764,6 +764,22 @@ footer.sticky-bottom {
           color: var(--global-theme-color) !important;
           border: 1px solid var(--global-theme-color);
         }
+
+        figure {
+          margin-bottom: 0;
+        }
+
+        .preview {
+          width: 100%;
+          aspect-ratio: 16 / 9;
+          object-fit: contain;
+          background-color: var(--global-card-bg-color);
+
+          &.preview-fit {
+            object-fit: cover;
+            background-color: transparent;
+          }
+        }
       }
 
       .title {
@@ -1167,6 +1183,15 @@ nav[data-toggle="toc"] {
 .medium-zoom-overlay,
 .medium-zoom-image--opened {
   z-index: 999;
+}
+
+// Keep publication previews at a fixed 16:9 frame even when zoomed.
+.publications .preview.medium-zoom-image--opened {
+  width: min(92vw, calc(92vh * 16 / 9)) !important;
+  height: min(calc(92vw * 9 / 16), 92vh) !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain !important;
 }
 
 #toc-sidebar {

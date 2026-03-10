@@ -2,7 +2,7 @@
 ---
 <div class="row">
   {% if site.enable_publication_thumbnails %}
-    <div class="col col-sm-5 abbr">
+    <div class="col col-sm-4 abbr">
       {%- if entry.abbr -%}
         {%- if site.data.venues[entry.abbr] -%}
           {% assign venue_style = null %}
@@ -26,27 +26,49 @@
         {% endif %}
       {% endif %}
       {% if entry.preview %}
+        {% assign fitting_mode = entry.fitting | default: 'false' | downcase %}
+        {% assign zoom_mode = entry.zoom | default: 'true' | downcase %}
+        {% assign preview_class = 'preview z-depth-1 rounded' %}
+        {% if fitting_mode == 'true' %}
+          {% assign preview_class = 'preview preview-fit z-depth-1 rounded' %}
+        {% endif %}
         {% if entry.preview contains '://' %}
-          <img class="preview z-depth-1 rounded" src="{{ entry.preview }}">
+          {% if zoom_mode == 'false' %}
+            <img class="{{ preview_class }}" src="{{ entry.preview }}">
+          {% else %}
+            <img class="{{ preview_class }}" src="{{ entry.preview }}" data-zoomable>
+          {% endif %}
         {% else %}
           {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
-          {%
-            include figure.liquid
-            loading="eager"
-            path=entry_path
-            sizes = "320px"
-            class="preview z-depth-1 rounded"
-            zoomable=true
-            avoid_scaling=true
-            alt=entry.preview
-          %}
+          {% if zoom_mode == 'false' %}
+            {%
+              include figure.liquid
+              loading="eager"
+              path=entry_path
+              sizes = "320px"
+              class=preview_class
+              avoid_scaling=true
+              alt=entry.preview
+            %}
+          {% else %}
+            {%
+              include figure.liquid
+              loading="eager"
+              path=entry_path
+              sizes = "320px"
+              class=preview_class
+              zoomable=true
+              avoid_scaling=true
+              alt=entry.preview
+            %}
+          {% endif %}
         {% endif %}
       {% endif %}
     </div>
   {% endif %}
 
   <!-- Entry bib key -->
-  <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-sm-7{% else %}col-sm-12{% endif %}">
+  <div id="{{ entry.key }}" class="{% if site.enable_publication_thumbnails %}col-sm-8{% else %}col-sm-12{% endif %}">
     <!-- Title -->
     <div class="title">{{ entry.title }}</div>
     <!-- Author -->
