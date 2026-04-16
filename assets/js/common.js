@@ -56,4 +56,32 @@ $(document).ready(function () {
   $('[data-toggle="popover"]').popover({
     trigger: "hover",
   });
+
+  const publicationPreviews = document.querySelectorAll('img[data-play-on-hover="true"]');
+
+  publicationPreviews.forEach((preview) => {
+    const staticSrc = preview.dataset.staticSrc;
+    const animatedSrc = preview.dataset.animatedSrc;
+
+    if (!staticSrc || !animatedSrc) {
+      return;
+    }
+
+    const playPreview = () => {
+      if (preview.src !== animatedSrc) {
+        preview.src = animatedSrc;
+      }
+    };
+
+    const stopPreview = () => {
+      if (preview.src !== staticSrc) {
+        preview.src = staticSrc;
+      }
+    };
+
+    preview.addEventListener("mouseenter", playPreview);
+    preview.addEventListener("mouseleave", stopPreview);
+    preview.addEventListener("focus", playPreview);
+    preview.addEventListener("blur", stopPreview);
+  });
 });

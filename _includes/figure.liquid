@@ -71,6 +71,15 @@
       {% if include.zoomable %}
         data-zoomable
       {% endif %}
+      {% if include.data_static_src %}
+        data-static-src="{{ include.data_static_src | relative_url }}"
+      {% endif %}
+      {% if include.data_animated_src %}
+        data-animated-src="{{ include.data_animated_src | relative_url }}"
+      {% endif %}
+      {% if include.play_on_hover %}
+        data-play-on-hover="true"
+      {% endif %}
       {% if include.loading %}
         loading="{{ include.loading }}"
       {% elsif site.lazy_loading_images %}
