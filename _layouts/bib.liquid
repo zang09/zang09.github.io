@@ -55,10 +55,10 @@
             <img class="{{ preview_class }}" src="{{ entry.preview }}" data-zoomable>
           {% endif %}
         {% elsif preview_is_local_gif %}
-          <figure>
+          <figure class="preview-media">
+            <img class="{{ preview_class }} preview-poster" src="{{ preview_still_path | relative_url }}" alt="{{ entry.preview }}">
             <video
-              class="{{ preview_class }}"
-              poster="{{ preview_still_path | relative_url }}"
+              class="{{ preview_class }} preview-video"
               preload="none"
               muted
               playsinline

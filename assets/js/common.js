@@ -96,6 +96,7 @@ $(document).ready(function () {
     const publicationRow = preview.closest(".row");
     const hoverTarget = publicationRow || preview;
     const isVideoPreview = preview.dataset.previewType === "video";
+    const previewMedia = preview.closest(".preview-media");
     const staticSrc = preview.dataset.staticSrc;
     const animatedSrc = preview.dataset.animatedSrc;
 
@@ -107,6 +108,9 @@ $(document).ready(function () {
 
     const playPreview = () => {
       if (isVideoPreview) {
+        if (previewMedia) {
+          previewMedia.classList.add("is-playing");
+        }
         preview.play().catch(() => {});
         return;
       }
@@ -120,6 +124,9 @@ $(document).ready(function () {
       if (isVideoPreview) {
         preview.pause();
         preview.currentTime = 0;
+        if (previewMedia) {
+          previewMedia.classList.remove("is-playing");
+        }
         return;
       }
 

@@ -769,6 +769,33 @@ footer.sticky-bottom {
           margin-bottom: 0;
         }
 
+        .preview-media {
+          position: relative;
+          overflow: hidden;
+
+          .preview-poster,
+          .preview-video {
+            display: block;
+          }
+
+          .preview-video {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            pointer-events: none;
+          }
+
+          &.is-playing {
+            .preview-poster {
+              opacity: 0;
+            }
+
+            .preview-video {
+              opacity: 1;
+            }
+          }
+        }
+
         .preview {
           width: 100%;
           aspect-ratio: 16 / 9;
