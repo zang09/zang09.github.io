@@ -31,6 +31,8 @@
         {% assign preview_class = 'preview z-depth-1 rounded' %}
         {% assign preview_still_path = null %}
         {% assign preview_animated_path = null %}
+        {% assign preview_video_mp4_path = null %}
+        {% assign preview_video_webm_path = null %}
         {% assign preview_is_local_gif = false %}
         {% if fitting_mode == 'true' %}
           {% assign preview_class = 'preview preview-fit z-depth-1 rounded' %}
@@ -42,6 +44,8 @@
             {% assign preview_is_local_gif = true %}
             {% assign preview_still_name = entry.preview | replace: '.gif', '.jpg' %}
             {% assign preview_still_path = preview_still_name | prepend: '/assets/img/publication_preview/' %}
+            {% assign preview_video_mp4_path = entry.preview | replace: '.gif', '.mp4' | prepend: '/assets/img/publication_preview/' %}
+            {% assign preview_video_webm_path = entry.preview | replace: '.gif', '.webm' | prepend: '/assets/img/publication_preview/' %}
           {% endif %}
         {% endunless %}
         {% if entry.preview contains '://' %}
@@ -50,11 +54,24 @@
           {% else %}
             <img class="{{ preview_class }}" src="{{ entry.preview }}" data-zoomable>
           {% endif %}
+        {% elsif preview_is_local_gif %}
+          <figure>
+            <video
+              class="{{ preview_class }}"
+              poster="{{ preview_still_path | relative_url }}"
+              preload="none"
+              muted
+              playsinline
+              loop
+              data-play-on-hover="true"
+              data-preview-type="video"
+            >
+              <source src="{{ preview_video_webm_path | relative_url }}" type="video/webm">
+              <source src="{{ preview_video_mp4_path | relative_url }}" type="video/mp4">
+            </video>
+          </figure>
         {% else %}
           {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
-          {% if preview_is_local_gif %}
-            {% assign entry_path = preview_still_path %}
-          {% endif %}
           {% if zoom_mode == 'false' %}
             {%
               include figure.liquid

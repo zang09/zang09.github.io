@@ -57,10 +57,22 @@ $(document).ready(function () {
     trigger: "hover",
   });
 
-  const publicationPreviews = document.querySelectorAll('img[data-play-on-hover="true"]');
+  const publicationPreviews = document.querySelectorAll('[data-play-on-hover="true"]');
   const preloadedAnimatedPreviews = new Set();
 
-  const preloadAnimatedPreview = (animatedSrc) => {
+  const preloadAnimatedPreview = (preview) => {
+    if (preview.dataset.previewType === "video") {
+      if (preloadedAnimatedPreviews.has(preview.currentSrc || preview.poster || preview.outerHTML)) {
+        return;
+      }
+
+      preloadedAnimatedPreviews.add(preview.currentSrc || preview.poster || preview.outerHTML);
+      preview.preload = "auto";
+      preview.load();
+      return;
+    }
+
+    const animatedSrc = preview.dataset.animatedSrc;
     if (!animatedSrc || preloadedAnimatedPreviews.has(animatedSrc)) {
       return;
     }
@@ -71,52 +83,58 @@ $(document).ready(function () {
     preloadImage.src = animatedSrc;
   };
 
-  const scheduleAnimatedPreviewPreload = (animatedSrc) => {
+  const scheduleAnimatedPreviewPreload = (preview) => {
     if ("requestIdleCallback" in window) {
-      window.requestIdleCallback(() => preloadAnimatedPreview(animatedSrc), { timeout: 2000 });
+      window.requestIdleCallback(() => preloadAnimatedPreview(preview), { timeout: 2000 });
       return;
     }
 
-    window.setTimeout(() => preloadAnimatedPreview(animatedSrc), 300);
+    window.setTimeout(() => preloadAnimatedPreview(preview), 300);
   };
 
   publicationPreviews.forEach((preview) => {
+    const publicationRow = preview.closest(".row");
+    const hoverTarget = publicationRow || preview;
+    const isVideoPreview = preview.dataset.previewType === "video";
     const staticSrc = preview.dataset.staticSrc;
     const animatedSrc = preview.dataset.animatedSrc;
-    const publicationRow = preview.closest(".row");
 
-    if (!staticSrc || !animatedSrc) {
+    if (!isVideoPreview && (!staticSrc || !animatedSrc)) {
       return;
     }
 
-    scheduleAnimatedPreviewPreload(animatedSrc);
+    scheduleAnimatedPreviewPreload(preview);
 
     const playPreview = () => {
+      if (isVideoPreview) {
+        preview.play().catch(() => {});
+        return;
+      }
+
       if (preview.src !== animatedSrc) {
         preview.src = animatedSrc;
       }
     };
 
     const stopPreview = () => {
+      if (isVideoPreview) {
+        preview.pause();
+        preview.currentTime = 0;
+        return;
+      }
+
       if (preview.src !== staticSrc) {
         preview.src = staticSrc;
       }
     };
 
-    preview.addEventListener("mouseenter", playPreview);
-    preview.addEventListener("mouseleave", stopPreview);
-    preview.addEventListener("focus", playPreview);
-    preview.addEventListener("blur", stopPreview);
-
-    if (publicationRow) {
-      publicationRow.addEventListener("mouseenter", playPreview);
-      publicationRow.addEventListener("mouseleave", stopPreview);
-      publicationRow.addEventListener("focusin", playPreview);
-      publicationRow.addEventListener("focusout", (event) => {
-        if (!publicationRow.contains(event.relatedTarget)) {
-          stopPreview();
-        }
-      });
-    }
+    hoverTarget.addEventListener("mouseenter", playPreview);
+    hoverTarget.addEventListener("mouseleave", stopPreview);
+    hoverTarget.addEventListener("focusin", playPreview);
+    hoverTarget.addEventListener("focusout", (event) => {
+      if (!hoverTarget.contains(event.relatedTarget)) {
+        stopPreview();
+      }
+    });
   });
 });
