@@ -58,6 +58,27 @@ $(document).ready(function () {
   });
 
   const publicationPreviews = document.querySelectorAll('img[data-play-on-hover="true"]');
+  const preloadedAnimatedPreviews = new Set();
+
+  const preloadAnimatedPreview = (animatedSrc) => {
+    if (!animatedSrc || preloadedAnimatedPreviews.has(animatedSrc)) {
+      return;
+    }
+
+    preloadedAnimatedPreviews.add(animatedSrc);
+
+    const preloadImage = new Image();
+    preloadImage.src = animatedSrc;
+  };
+
+  const scheduleAnimatedPreviewPreload = (animatedSrc) => {
+    if ("requestIdleCallback" in window) {
+      window.requestIdleCallback(() => preloadAnimatedPreview(animatedSrc), { timeout: 2000 });
+      return;
+    }
+
+    window.setTimeout(() => preloadAnimatedPreview(animatedSrc), 300);
+  };
 
   publicationPreviews.forEach((preview) => {
     const staticSrc = preview.dataset.staticSrc;
@@ -67,6 +88,8 @@ $(document).ready(function () {
     if (!staticSrc || !animatedSrc) {
       return;
     }
+
+    scheduleAnimatedPreviewPreload(animatedSrc);
 
     const playPreview = () => {
       if (preview.src !== animatedSrc) {
