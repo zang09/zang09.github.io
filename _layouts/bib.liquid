@@ -29,8 +29,8 @@
         {% assign fitting_mode = entry.fitting | default: 'false' | downcase %}
         {% assign zoom_mode = entry.zoom | default: 'true' | downcase %}
         {% assign preview_class = 'preview z-depth-1 rounded' %}
-        {% assign preview_still_path = nil %}
-        {% assign preview_animated_path = nil %}
+        {% assign preview_still_path = null %}
+        {% assign preview_animated_path = null %}
         {% assign preview_is_local_gif = false %}
         {% if fitting_mode == 'true' %}
           {% assign preview_class = 'preview preview-fit z-depth-1 rounded' %}

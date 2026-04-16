@@ -8,3 +8,4 @@ lighthouse_results/**
 _sass/font-awesome/*.scss
 _sass/tabler-icons/*.scss
 _scripts/*
+.venv/**

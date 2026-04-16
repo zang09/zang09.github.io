@@ -62,6 +62,7 @@ $(document).ready(function () {
   publicationPreviews.forEach((preview) => {
     const staticSrc = preview.dataset.staticSrc;
     const animatedSrc = preview.dataset.animatedSrc;
+    const publicationRow = preview.closest(".row");
 
     if (!staticSrc || !animatedSrc) {
       return;
@@ -83,5 +84,16 @@ $(document).ready(function () {
     preview.addEventListener("mouseleave", stopPreview);
     preview.addEventListener("focus", playPreview);
     preview.addEventListener("blur", stopPreview);
+
+    if (publicationRow) {
+      publicationRow.addEventListener("mouseenter", playPreview);
+      publicationRow.addEventListener("mouseleave", stopPreview);
+      publicationRow.addEventListener("focusin", playPreview);
+      publicationRow.addEventListener("focusout", (event) => {
+        if (!publicationRow.contains(event.relatedTarget)) {
+          stopPreview();
+        }
+      });
+    }
   });
 });
