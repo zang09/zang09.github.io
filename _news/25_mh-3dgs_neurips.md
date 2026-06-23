@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-Our paper on [3DGS densification sampling](https://hjhyunjinkim.github.io/MH-3DGS/) has been accepted to <b>NeurIPS 2025!</b>
+Our paper on [3DGS Densification Sampling](https://hjhyunjinkim.github.io/MH-3DGS/) has been accepted to <b>NeurIPS 2025!</b>

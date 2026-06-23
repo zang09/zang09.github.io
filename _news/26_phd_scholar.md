@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-<span style="color: red;">NEW!</span> Selected as a Jeonghun Foundation Scholar for Ph.D. studies.
+Selected as a Jeonghun Foundation Scholar for Ph.D. studies.
