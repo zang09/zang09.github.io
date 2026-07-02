@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+preview_dir="${1:-assets/img/publication_preview}"
+
+if [[ ! -d "$preview_dir" ]]; then
+  echo "Publication preview directory not found: $preview_dir" >&2
+  exit 1
+fi
+
+if ! command -v ffmpeg >/dev/null 2>&1; then
+  echo "ffmpeg is required to generate publication preview jpg/mp4/webm files." >&2
+  exit 1
+fi
+
+if ! ffmpeg -version >/dev/null 2>&1; then
+  echo "ffmpeg is installed but cannot run. Reinstall or repair ffmpeg, then retry." >&2
+  exit 1
+fi
+
+needs_update() {
+  local source="$1"
+  local target="$2"
+
+  [[ ! -f "$target" || "$source" -nt "$target" ]]
+}
+
+generated=0
+
+while IFS= read -r -d '' gif; do
+  base="${gif%.*}"
+  jpg="${base}.jpg"
+  mp4="${base}.mp4"
+  webm="${base}.webm"
+
+  if needs_update "$gif" "$jpg"; then
+    echo "Generating $jpg"
+    tmp_jpg="${jpg}.tmp.jpg"
+    ffmpeg -hide_banner -loglevel error -nostdin -y -i "$gif" -vf reverse -frames:v 1 -q:v 2 "$tmp_jpg"
+    mv "$tmp_jpg" "$jpg"
+    generated=$((generated + 1))
+  fi
+
+  if needs_update "$gif" "$mp4"; then
+    echo "Generating $mp4"
+    tmp_mp4="${mp4}.tmp.mp4"
+    ffmpeg -hide_banner -loglevel error -nostdin -y -i "$gif" \
+      -movflags +faststart \
+      -pix_fmt yuv420p \
+      -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" \
+      "$tmp_mp4"
+    mv "$tmp_mp4" "$mp4"
+    generated=$((generated + 1))
+  fi
+
+  if needs_update "$gif" "$webm"; then
+    echo "Generating $webm"
+    tmp_webm="${webm}.tmp.webm"
+    ffmpeg -hide_banner -loglevel error -nostdin -y -i "$gif" \
+      -c:v libvpx-vp9 \
+      -b:v 0 \
+      -crf 35 \
+      -pix_fmt yuv420p \
+      -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" \
+      "$tmp_webm"
+    mv "$tmp_webm" "$webm"
+    generated=$((generated + 1))
+  fi
+done < <(find "$preview_dir" -maxdepth 1 -type f -name '*.gif' -print0)
+
+if [[ "$generated" -eq 0 ]]; then
+  echo "Publication preview derivatives are up to date."
+fi

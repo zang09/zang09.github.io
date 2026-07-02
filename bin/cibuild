@@ -1,1 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+bin/generate-publication-previews
 bundle exec jekyll build
