@@ -258,9 +258,9 @@
       {% endif %}
       {% if entry.html %}
         {% if entry.html contains '://' %}
-          <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button">HTML</a>
+          <a href="{{ entry.html }}" class="btn btn-sm z-depth-0" role="button">PAPER</a>
         {% else %}
-          <a href="{{ entry.html | prepend: '/assets/html/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">HTML</a>
+          <a href="{{ entry.html | prepend: '/assets/html/' | relative_url }}" class="btn btn-sm z-depth-0" role="button">PAPER</a>
         {% endif %}
       {% endif %}
       {% if entry.pdf %}
@@ -303,7 +303,7 @@
         {% endif %}
       {% endif %}
       {% if entry.website %}
-        <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button">Website</a>
+        <a href="{{ entry.website }}" class="btn btn-sm z-depth-0" role="button">PROJECT PAGE</a>
       {% endif %}
     </div>
     {% if site.enable_publication_badges %}
