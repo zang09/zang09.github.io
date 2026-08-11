@@ -100,7 +100,7 @@
       <a href="https://www.zotero.org/{{ social[1] }}" title="Zotero"><i class="ai ai-zotero"></i></a>
     {% when 'my_cv' %}
       {% if social[1] == true %}
-        <a href="./assets/pdf/CV_HaebeomJung.pdf" title="CV"><i class="fa-solid fa-file-lines fa-sm"></i></a>
+        <a href="./assets/pdf/CV_HaebeomJung.pdf" title="CV">{% include icons/cv-document.svg %}</a>
       {% endif %}
     {% else %}
       <a href="{{ social[1].url }}" title="{{ social[1].title }}">

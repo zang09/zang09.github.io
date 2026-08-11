@@ -1,0 +1,25 @@
+<svg
+  class="cv-document-icon"
+  viewBox="0 0 24 24"
+  role="img"
+  aria-label="CV document"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M6 2.75h8.5L19 7.25v14H6z"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.8"
+    stroke-linejoin="round"
+  />
+  <path d="M14.5 2.75v4.5H19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" />
+  <path
+    d="M11.2 12.25a2.3 2.3 0 1 0 0 3.5M12.9 12l1.65 4 1.65-4"
+    transform="translate(0.7 0)"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="1.65"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+</svg>
