@@ -4,20 +4,24 @@ Personal academic homepage of Haebeom Jung. A single static page with no build s
 
 ## Structure
 
-| Path                    | Purpose                                            |
-| ----------------------- | -------------------------------------------------- |
-| `index.html`            | The whole site: about, news, publications, honors  |
-| `assets/css/style.css`  | Styles (light/dark via CSS variables)              |
-| `assets/js/main.js`     | Theme toggle, hover video previews, BibTeX toggles |
-| `assets/img/papers/`    | Paper thumbnails: `<name>.jpg` + `.webm` + `.mp4`  |
-| `assets/pdf/`           | CV                                                 |
-| `publications/`, `cv/`… | Redirect stubs preserving the old al-folio URLs    |
+| Path                                | Purpose                                            |
+| ----------------------------------- | -------------------------------------------------- |
+| `index.html`                        | Home: hero, bio, latest news, selected pubs/honors |
+| `news/`, `publications/`, `honors/` | Full-list pages (each an `index.html`)             |
+| `assets/css/style.css`              | Styles (light/dark via CSS variables)              |
+| `assets/js/main.js`                 | Theme toggle, hover video previews, BibTeX toggles |
+| `assets/img/papers/`                | Paper thumbnails: `<name>.jpg` + `.webm` + `.mp4`  |
+| `assets/pdf/`                       | CV                                                 |
+| `cv/`, `honors_and_awards/`         | Redirect stubs preserving old al-folio URLs        |
 
 ## Editing
 
-- **News**: add an `<li>` to `<ul class="news">` in `index.html` (newest first).
-- **Publication**: copy an existing `<li class="pub">` block, drop `name.jpg`, `name.webm`, `name.mp4` into `assets/img/papers/`.
-- **Honors**: add an `<li>` to `<ul class="honors">`.
+The home page shows a subset (latest 4 news, selected honors); the sub-pages show everything. Content lives in plain HTML, so an item that should appear in both places is added in both files.
+
+- **News**: add an `<li>` to `<ul class="news">` in `news/index.html`, and to `index.html` if it is among the latest 4 (remove the oldest there).
+- **Publication**: copy an existing `<li class="card pub">` block into `publications/index.html` (and `index.html` if selected); drop `name.jpg`, `name.webm`, `name.mp4` into `assets/img/papers/`.
+- **Honors**: add an `<li class="card">` to `<ul class="honors">` in `honors/index.html` (year-descending), and to `index.html` if selected.
+- **Nav**: the header is duplicated in each page; keep the four copies in sync.
 - **CV**: replace `assets/pdf/CV_HaebeomJung.pdf`.
 
 Preview locally with any static server, e.g. `python3 -m http.server 8000`.

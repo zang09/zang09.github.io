@@ -2,11 +2,114 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="refresh" content="0; url=/#news" />
-    <link rel="canonical" href="https://www.haebeom.com//#news" />
-    <title>Redirecting…</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>News · Haebeom Jung</title>
+    <meta name="description" content="Recent news and announcements from Haebeom Jung." />
+    <meta name="keywords" content="Haebeom Jung, 3D reconstruction, Gaussian splatting, LiDAR-camera calibration, SLAM, Seoul National University" />
+    <meta name="author" content="Haebeom Jung" />
+    <link rel="canonical" href="https://www.haebeom.com/news/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="News · Haebeom Jung" />
+    <meta
+      property="og:description"
+      content="Ph.D. student at Seoul National University. Sensor calibration, novel view synthesis, 3D reconstruction."
+    />
+    <meta property="og:url" content="https://www.haebeom.com/news/" />
+    <meta property="og:image" content="https://www.haebeom.com/assets/img/profile.jpg" />
+    <link rel="icon" type="image/png" href="/assets/img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <script>
+      try {
+        var t = localStorage.getItem("theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    </script>
   </head>
   <body>
-    <a href="/#news">Redirecting…</a>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <nav class="nav" aria-label="Sections">
+        <a class="brand" href="/">Haebeom Jung</a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/news/" aria-current="page">News</a>
+          <a href="/publications/">Publications</a>
+          <a href="/honors/">Honors</a>
+          <a href="/assets/pdf/CV_HaebeomJung.pdf" target="_blank" rel="noopener">CV</a>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" />
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main" class="container container-narrow">
+      <section class="section page-section">
+        <div class="section-head page-head">
+          <h1>News</h1>
+          <p class="page-lede">Papers, talks, and milestones, newest first.</p>
+        </div>
+        <ul class="card news">
+          <li>
+            <time datetime="2026-06">Jun 2026</time>
+            <p>
+              <a href="https://da-eun07.github.io/rest2art/" target="_blank" rel="noopener">Rest2Art</a>, our work on articulated object
+              reconstruction, is accepted to <strong>ECCV 2026</strong>.
+            </p>
+          </li>
+          <li>
+            <time datetime="2026-03">Mar 2026</time>
+            <p>Selected as a Jeonghun Foundation Scholar for Ph.D. studies.</p>
+          </li>
+          <li>
+            <time datetime="2026-02">Feb 2026</time>
+            <p>
+              <a href="https://zang09.github.io/tlc-calib-site/" target="_blank" rel="noopener">TLC-Calib</a> will be presented at
+              <strong>ICRA 2026</strong>.
+            </p>
+          </li>
+          <li>
+            <time datetime="2026-01">Jan 2026</time>
+            <p>
+              Our paper on
+              <a href="https://zang09.github.io/tlc-calib-site/" target="_blank" rel="noopener">targetless LiDAR–camera calibration</a> is accepted to
+              <strong>IEEE RA-L</strong>.
+            </p>
+          </li>
+          <li>
+            <time datetime="2025-09">Sep 2025</time>
+            <p>
+              <a href="https://hjhyunjinkim.github.io/MH-3DGS/" target="_blank" rel="noopener">MH-3DGS</a>, our work on 3DGS densification sampling,
+              is accepted to <strong>NeurIPS 2025</strong>.
+            </p>
+          </li>
+          <li>
+            <time datetime="2024-09">Sep 2024</time>
+            <p>Received M.S. research funding from the Korean Ministry of Education, awarded to 750 master's students nationwide.</p>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Haebeom Jung · <a href="mailto:haebeom.jung@snu.ac.kr">haebeom.jung@snu.ac.kr</a></p>
+    </footer>
+
+    <script src="/assets/js/main.js" defer></script>
   </body>
 </html>
