@@ -68,8 +68,8 @@
     }
   });
 
-  /* ---------- BibTeX toggles ---------- */
-  document.querySelectorAll(".bib-toggle").forEach(function (btn) {
+  /* ---------- disclosure toggles (BibTeX, full bio) ---------- */
+  document.querySelectorAll(".bib-toggle, .bio-toggle").forEach(function (btn) {
     var target = document.getElementById(btn.getAttribute("aria-controls"));
     if (!target) return;
     btn.addEventListener("click", function () {
