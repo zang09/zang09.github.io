@@ -303,8 +303,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 28px;
-  padding: 34px 36px;
+  gap: 24px;
+  padding: 32px 34px;
   position: relative;
   overflow: hidden;
 }
@@ -327,8 +327,8 @@ button {
 .portrait {
   position: relative;
   flex: 0 0 auto;
-  width: 216px;
-  height: 286px;
+  width: 200px;
+  height: 264px;
   object-fit: cover;
   object-position: center 30%;
   border-radius: 22px;
@@ -412,7 +412,7 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 7px 11px;
+  padding: 6px 10px;
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-sm);
   color: var(--fg);
