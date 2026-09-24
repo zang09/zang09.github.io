@@ -2,67 +2,7 @@ name: Deploy site
 
 on:
   push:
-    branches:
-      - master
-      - main
-    paths:
-      - "assets/**"
-      - "_sass/**"
-      - "_scripts/**"
-      - "**.bib"
-      - "**.html"
-      - "**.svg"
-      - "**.js"
-      - "**.liquid"
-      - "**/*.md"
-      - "**.yml"
-      - "bin/**"
-      - "Gemfile"
-      - "Gemfile.lock"
-      - "!.github/workflows/axe.yml"
-      - "!.github/workflows/broken-links.yml"
-      - "!.github/workflows/deploy-docker-tag.yml"
-      - "!.github/workflows/deploy-image.yml"
-      - "!.github/workflows/docker-slim.yml"
-      - "!.github/workflows/lighthouse-badger.yml"
-      - "!.github/workflows/prettier.yml"
-      - "!lighthouse_results/**"
-      - "!CONTRIBUTING.md"
-      - "!CUSTOMIZE.md"
-      - "!FAQ.md"
-      - "!INSTALL.md"
-      - "!README.md"
-  pull_request:
-    branches:
-      - master
-      - main
-    paths:
-      - "assets/**"
-      - "_sass/**"
-      - "_scripts/**"
-      - "**.bib"
-      - "**.html"
-      - "**.svg"
-      - "**.js"
-      - "**.liquid"
-      - "**/*.md"
-      - "**.yml"
-      - "bin/**"
-      - "Gemfile"
-      - "Gemfile.lock"
-      - "!.github/workflows/axe.yml"
-      - "!.github/workflows/broken-links.yml"
-      - "!.github/workflows/deploy-docker-tag.yml"
-      - "!.github/workflows/deploy-image.yml"
-      - "!.github/workflows/docker-slim.yml"
-      - "!.github/workflows/lighthouse-badger.yml"
-      - "!.github/workflows/prettier.yml"
-      - "!lighthouse_results/**"
-      - "!CONTRIBUTING.md"
-      - "!CUSTOMIZE.md"
-      - "!FAQ.md"
-      - "!INSTALL.md"
-      - "!README.md"
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -70,59 +10,19 @@ permissions:
 
 jobs:
   deploy:
-    # available images: https://github.com/actions/runner-images#available-images
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout
         uses: actions/checkout@v4
-      - name: Setup Ruby 💎
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: "3.3.5"
-          bundler-cache: true
-      - name: Setup Python 🐍
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.13"
-          cache: "pip" # caching pip dependencies
-          cache-dependency-path: requirements.txt
-      - name: Setup Node.js ⚙️
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          cache: "npm"
-      - name: Update _config.yml ⚙️
-        uses: fjogeleit/yaml-update-action@main
-        with:
-          commitChange: false
-          valueFile: "_config.yml"
-          propertyPath: "giscus.repo"
-          value: ${{ github.repository }}
-      - name: Install and Build 🔧
-        run: |
-          if ! command -v convert >/dev/null 2>&1; then
-            sudo apt-get update
-            sudo apt-get install -y imagemagick
-          fi
-          if ! command -v ffmpeg >/dev/null 2>&1; then
-            sudo apt-get update
-            sudo apt-get install -y ffmpeg
-          fi
-          pip3 install -r requirements.txt
-          export JEKYLL_ENV=production
-          bin/cibuild
-      - name: Purge unused CSS 🧹
-        run: |
-          npx --yes purgecss -c purgecss.config.js
-      - name: Upload site artifact 📦
-        uses: actions/upload-artifact@v4
-        with:
-          name: site-build
-          path: _site
-          if-no-files-found: error
-          retention-days: 1
-      - name: Deploy 🚀
-        if: github.event_name != 'pull_request'
+
+      - name: Check formatting
+        run: npx --yes prettier@3 . --check
+
+      - name: Deploy to gh-pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: _site
+          folder: .
+          branch: gh-pages
+          clean: true
+          clean-exclude: |
+            .nojekyll

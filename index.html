@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Haebeom Jung</title>
+    <meta
+      name="description"
+      content="Haebeom Jung is a Ph.D. student at Seoul National University working on sensor calibration, novel view synthesis, and 3D reconstruction."
+    />
+    <meta name="keywords" content="Haebeom Jung, 3D reconstruction, Gaussian splatting, LiDAR-camera calibration, SLAM, Seoul National University" />
+    <meta name="author" content="Haebeom Jung" />
+    <link rel="canonical" href="https://www.haebeom.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Haebeom Jung" />
+    <meta
+      property="og:description"
+      content="Ph.D. student at Seoul National University. Sensor calibration, novel view synthesis, 3D reconstruction."
+    />
+    <meta property="og:url" content="https://www.haebeom.com/" />
+    <meta property="og:image" content="https://www.haebeom.com/assets/img/profile.jpg" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script>
+      try {
+        var t = localStorage.getItem("theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Haebeom Jung",
+        "url": "https://www.haebeom.com/",
+        "image": "https://www.haebeom.com/assets/img/profile.jpg",
+        "jobTitle": "Ph.D. Student",
+        "affiliation": { "@type": "Organization", "name": "Seoul National University" },
+        "email": "mailto:haebeom.jung@snu.ac.kr",
+        "sameAs": [
+          "https://scholar.google.com/citations?user=iQRTLHwAAAAJ",
+          "https://github.com/zang09",
+          "https://www.linkedin.com/in/haebeom-jung-867b99212/"
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#about">Skip to content</a>
+
+    <header class="site-header">
+      <nav class="nav" aria-label="Sections">
+        <a class="brand" href="#top">Haebeom Jung</a>
+        <div class="nav-links">
+          <a href="#news">News</a>
+          <a href="#publications">Publications</a>
+          <a href="#honors">Honors</a>
+          <a href="assets/pdf/CV_HaebeomJung.pdf" target="_blank" rel="noopener">CV</a>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" />
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top" class="container">
+      <!-- ================= Hero ================= -->
+      <section class="hero" id="about">
+        <div class="hero-text">
+          <h1 class="name">Haebeom Jung <span class="name-ko" lang="ko">정해범</span></h1>
+          <p class="role">
+            Ph.D. student, <a href="https://gsai.snu.ac.kr/" target="_blank" rel="noopener">Interdisciplinary Program in AI</a><br />
+            Seoul National University
+          </p>
+          <ul class="links" aria-label="Contact and profiles">
+            <li>
+              <a href="mailto:haebeom.jung@snu.ac.kr">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2" />
+                  <path d="M3 7l9 6 9-6" fill="none" stroke="currentColor" stroke-width="2" />
+                </svg>
+                Email
+              </a>
+            </li>
+            <li>
+              <a href="https://scholar.google.com/citations?user=iQRTLHwAAAAJ" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2 10l10-6 10 6-10 6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                  <path d="M6 12.5V17c0 1.7 2.7 3 6 3s6-1.3 6-3v-4.5" fill="none" stroke="currentColor" stroke-width="2" />
+                </svg>
+                Scholar
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/zang09" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M12 2C6.5 2 2 6.6 2 12.2c0 4.5 2.9 8.3 6.8 9.7.5.1.7-.2.7-.5v-1.8c-2.8.6-3.4-1.2-3.4-1.2-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.6 2.4 1.1 3 .9.1-.7.3-1.1.6-1.4-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 5 0c1.9-1.3 2.7-1 2.7-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7 1 .7 1.9v2.9c0 .3.2.6.7.5A10.2 10.2 0 0 0 22 12.2C22 6.6 17.5 2 12 2z"
+                    fill="currentColor"
+                  />
+                </svg>
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/haebeom-jung-867b99212/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM10 9h3.8v1.7h.1c.5-1 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6V21h-4v-5.5c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9V21h-4z"
+                    fill="currentColor"
+                  />
+                </svg>
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href="assets/pdf/CV_HaebeomJung.pdf" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M6 2h8l5 5v15H6z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                  <path d="M14 2v5h5M9 13h6M9 17h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                </svg>
+                CV
+              </a>
+            </li>
+          </ul>
+        </div>
+        <img class="portrait" src="assets/img/profile.jpg" width="650" height="900" alt="Portrait of Haebeom Jung" />
+      </section>
+
+      <!-- ================= About ================= -->
+      <section class="prose">
+        <p>
+          I am an Integrated Ph.D. student in the Interdisciplinary Program in Artificial Intelligence at
+          <a href="https://gsai.snu.ac.kr/" target="_blank" rel="noopener">Seoul National University</a>, advised by
+          <a href="https://jaesik.info/" target="_blank" rel="noopener">Jaesik Park</a>. My research interests include
+          <strong>sensor calibration</strong>, <strong>novel view synthesis</strong>, and <strong>3D reconstruction</strong>.
+        </p>
+        <p>
+          Before starting my Ph.D., I completed my military service and worked as a robotics software engineer at
+          <a href="https://www.kakaomobility.com/" target="_blank" rel="noopener">Kakao Mobility</a> and Stryx, focusing on LiDAR-based localization,
+          SLAM, and robot navigation.
+        </p>
+        <p>
+          I received my B.S. degree in Robotics from Kwangwoon University. During my undergraduate years, I was awarded a full scholarship through my
+          active involvement in the university's robotics team,
+          <a href="https://www.youtube.com/c/ROBITKORrobotgameteam/" target="_blank" rel="noopener">RO:BIT</a>, where I served as the team leader of
+          the Humanoid division.
+        </p>
+      </section>
+
+      <!-- ================= News ================= -->
+      <section id="news" class="section">
+        <h2>News</h2>
+        <ul class="news">
+          <li>
+            <time datetime="2026-06">Jun 2026</time>
+            <p>
+              <a href="https://da-eun07.github.io/rest2art/" target="_blank" rel="noopener">Rest2Art</a>, our work on articulated object
+              reconstruction, is accepted to <strong>ECCV 2026</strong>.
+            </p>
+          </li>
+          <li>
+            <time datetime="2026-03">Mar 2026</time>
+            <p>Selected as a Jeonghun Foundation Scholar for Ph.D. studies.</p>
+          </li>
+          <li>
+            <time datetime="2026-02">Feb 2026</time>
+            <p>
+              <a href="https://zang09.github.io/tlc-calib-site/" target="_blank" rel="noopener">TLC-Calib</a> will be presented at
+              <strong>ICRA 2026</strong>.
+            </p>
+          </li>
+          <li>
+            <time datetime="2026-01">Jan 2026</time>
+            <p>
+              Our paper on
+              <a href="https://zang09.github.io/tlc-calib-site/" target="_blank" rel="noopener">targetless LiDAR–camera calibration</a> is accepted to
+              <strong>IEEE RA-L</strong>.
+            </p>
+          </li>
+          <li>
+            <time datetime="2025-09">Sep 2025</time>
+            <p>
+              <a href="https://hjhyunjinkim.github.io/MH-3DGS/" target="_blank" rel="noopener">MH-3DGS</a>, our work on 3DGS densification sampling,
+              is accepted to <strong>NeurIPS 2025</strong>.
+            </p>
+          </li>
+          <li>
+            <time datetime="2024-09">Sep 2024</time>
+            <p>Received M.S. research funding from the Korean Ministry of Education, awarded to 750 master's students nationwide.</p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ================= Publications ================= -->
+      <section id="publications" class="section">
+        <h2>Publications</h2>
+        <p class="section-note">Hover a thumbnail to play the preview.</p>
+
+        <ol class="pubs">
+          <li class="pub">
+            <a class="pub-media" href="https://da-eun07.github.io/rest2art/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+              <img src="assets/img/papers/rest2art.jpg" alt="" loading="lazy" />
+              <video muted loop playsinline preload="none" poster="assets/img/papers/rest2art.jpg">
+                <source src="assets/img/papers/rest2art.webm" type="video/webm" />
+                <source src="assets/img/papers/rest2art.mp4" type="video/mp4" />
+              </video>
+            </a>
+            <div class="pub-body">
+              <h3 class="pub-title">
+                <a href="https://da-eun07.github.io/rest2art/" target="_blank" rel="noopener"
+                  >Articulated Object Reconstruction from Rest-State Observation</a
+                >
+              </h3>
+              <p class="pub-authors">Daeun Lee, Jaeah Lee, Woosung Kim, <span class="me">Haebeom Jung</span>, Jaesik Park</p>
+              <p class="pub-venue"><span class="venue-tag">ECCV 2026</span> European Conference on Computer Vision</p>
+              <p class="pub-links">
+                <a href="https://da-eun07.github.io/rest2art/" target="_blank" rel="noopener">Project</a>
+                <a href="https://arxiv.org/abs/2607.27749" target="_blank" rel="noopener">arXiv</a>
+                <button type="button" class="bib-toggle" aria-expanded="false" aria-controls="bib-rest2art">BibTeX</button>
+              </p>
+              <pre class="bib" id="bib-rest2art" hidden>
+@inproceedings{lee2026articulated,
+  title     = {Articulated Object Reconstruction from Rest-State Observation},
+  author    = {Lee, Daeun and Lee, Jaeah and Kim, Woosung and Jung, Haebeom and Park, Jaesik},
+  booktitle = {European Conference on Computer Vision (ECCV)},
+  year      = {2026}
+}</pre>
+            </div>
+          </li>
+
+          <li class="pub">
+            <a class="pub-media" href="https://zang09.github.io/tlc-calib-site/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+              <img src="assets/img/papers/tlc-calib.jpg" alt="" loading="lazy" />
+              <video muted loop playsinline preload="none" poster="assets/img/papers/tlc-calib.jpg">
+                <source src="assets/img/papers/tlc-calib.webm" type="video/webm" />
+                <source src="assets/img/papers/tlc-calib.mp4" type="video/mp4" />
+              </video>
+            </a>
+            <div class="pub-body">
+              <h3 class="pub-title">
+                <a href="https://zang09.github.io/tlc-calib-site/" target="_blank" rel="noopener"
+                  >Targetless LiDAR–Camera Calibration with Neural Gaussian Splatting</a
+                >
+              </h3>
+              <p class="pub-authors"><span class="me">Haebeom Jung</span>, Namtae Kim, Jungwoo Kim, Jaesik Park</p>
+              <p class="pub-venue">
+                <span class="venue-tag">RA-L 2026</span> IEEE Robotics and Automation Letters, vol. 11, no. 4 · presented at
+                <span class="venue-tag">ICRA 2026</span>
+              </p>
+              <p class="pub-links">
+                <a href="https://zang09.github.io/tlc-calib-site/" target="_blank" rel="noopener">Project</a>
+                <a href="https://arxiv.org/abs/2504.04597" target="_blank" rel="noopener">arXiv</a>
+                <a href="https://github.com/SNU-VGILab/TLC-Calib" target="_blank" rel="noopener">Code</a>
+                <a href="https://doi.org/10.1109/LRA.2026.3665066" target="_blank" rel="noopener">DOI</a>
+                <button type="button" class="bib-toggle" aria-expanded="false" aria-controls="bib-tlc">BibTeX</button>
+              </p>
+              <pre class="bib" id="bib-tlc" hidden>
+@article{jung2026targetless,
+  title   = {Targetless LiDAR-Camera Calibration with Neural Gaussian Splatting},
+  author  = {Jung, Haebeom and Kim, Namtae and Kim, Jungwoo and Park, Jaesik},
+  journal = {IEEE Robotics and Automation Letters},
+  volume  = {11},
+  number  = {4},
+  pages   = {4777--4784},
+  year    = {2026},
+  doi     = {10.1109/LRA.2026.3665066}
+}</pre>
+            </div>
+          </li>
+
+          <li class="pub">
+            <a class="pub-media" href="https://hjhyunjinkim.github.io/MH-3DGS/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+              <img src="assets/img/papers/mh-3dgs.jpg" alt="" loading="lazy" />
+              <video muted loop playsinline preload="none" poster="assets/img/papers/mh-3dgs.jpg">
+                <source src="assets/img/papers/mh-3dgs.webm" type="video/webm" />
+                <source src="assets/img/papers/mh-3dgs.mp4" type="video/mp4" />
+              </video>
+            </a>
+            <div class="pub-body">
+              <h3 class="pub-title">
+                <a href="https://hjhyunjinkim.github.io/MH-3DGS/" target="_blank" rel="noopener"
+                  >Metropolis-Hastings Sampling for 3D Gaussian Reconstruction</a
+                >
+              </h3>
+              <p class="pub-authors">Hyunjin Kim, <span class="me">Haebeom Jung</span>, Jaesik Park</p>
+              <p class="pub-venue"><span class="venue-tag">NeurIPS 2025</span> Advances in Neural Information Processing Systems, vol. 38</p>
+              <p class="pub-links">
+                <a href="https://hjhyunjinkim.github.io/MH-3DGS/" target="_blank" rel="noopener">Project</a>
+                <a href="https://arxiv.org/abs/2506.12945" target="_blank" rel="noopener">arXiv</a>
+                <a href="https://github.com/hjhyunjinkim/MH-3DGS" target="_blank" rel="noopener">Code</a>
+                <button type="button" class="bib-toggle" aria-expanded="false" aria-controls="bib-mh">BibTeX</button>
+              </p>
+              <pre class="bib" id="bib-mh" hidden>
+@inproceedings{kim2025metropolis,
+  title     = {Metropolis-Hastings Sampling for 3D Gaussian Reconstruction},
+  author    = {Kim, Hyunjin and Jung, Haebeom and Park, Jaesik},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  volume    = {38},
+  pages     = {142862--142887},
+  year      = {2025}
+}</pre>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ================= Honors ================= -->
+      <section id="honors" class="section">
+        <h2>Honors &amp; Awards</h2>
+        <ul class="honors">
+          <li>
+            <time>2026</time>
+            <div>
+              <p class="honor-title">Jeonghun Foundation Ph.D. Scholarship</p>
+              <p class="honor-meta">Jeonghun Foundation · Mar 2026 – Aug 2026</p>
+            </div>
+          </li>
+          <li>
+            <time>2024</time>
+            <div>
+              <p class="honor-title">M.S. Research Funding</p>
+              <p class="honor-meta">Korean Ministry of Education · Sep 2024 – Aug 2025 · one of 750 master's students selected nationwide</p>
+            </div>
+          </li>
+          <li>
+            <time>2023</time>
+            <div>
+              <p class="honor-title">SNU AI Fellowship (M.S. Program)</p>
+              <p class="honor-meta">Seoul National University · Sep 2023 – Aug 2025 · four-semester scholarship</p>
+            </div>
+          </li>
+          <li>
+            <time>2019</time>
+            <div>
+              <p class="honor-title">Outstanding Mentor, Samsung Junior Software Creation Contest</p>
+              <p class="honor-meta">
+                Samsung Electronics · mentored team “Wassup”, top award in the high school division ·
+                <a href="http://bit.ly/33DtSrD" target="_blank" rel="noopener">news</a>
+              </p>
+            </div>
+          </li>
+          <li>
+            <time>2018</time>
+            <div>
+              <p class="honor-title">2nd Place, IRC – Intelligent Humanoid Robot Sports</p>
+              <p class="honor-meta">
+                National Institute of Technology and Standards ·
+                <a href="https://www.joongang.co.kr/article/23046724" target="_blank" rel="noopener">news</a>
+              </p>
+            </div>
+          </li>
+          <li>
+            <time>2018</time>
+            <div>
+              <p class="honor-title">3rd Place, R-BIZ Challenge – TurtleBot3 Autorace</p>
+              <p class="honor-meta">
+                Korea Institute for Robot Industry Advancement ·
+                <a href="https://www.joongang.co.kr/article/23139604" target="_blank" rel="noopener">news</a> ·
+                <a href="https://www.youtube.com/watch?v=2NJ0AukbBek" target="_blank" rel="noopener">video</a>
+              </p>
+            </div>
+          </li>
+          <li>
+            <time>2018</time>
+            <div>
+              <p class="honor-title">3rd Place, RoboCup 2018 Montréal – Kidsize Humanoid Technical Challenge</p>
+              <p class="honor-meta">
+                RoboCup Federation · team leader ·
+                <a href="https://www.joongang.co.kr/article/22752603" target="_blank" rel="noopener">news</a> ·
+                <a href="https://www.youtube.com/watch?v=oUhVMDQ7Fwc" target="_blank" rel="noopener">video</a>
+              </p>
+            </div>
+          </li>
+          <li>
+            <time>2017</time>
+            <div>
+              <p class="honor-title">Achievement Award</p>
+              <p class="honor-meta">
+                Kwangwoon University · university-wide recognition ·
+                <a href="https://www.metroseoul.co.kr/article/2017010500141" target="_blank" rel="noopener">news</a>
+              </p>
+            </div>
+          </li>
+          <li>
+            <time>2017</time>
+            <div>
+              <p class="honor-title">Winner, IRC – Intelligent Humanoid Robot Sports</p>
+              <p class="honor-meta">
+                Ministry of Trade, Industry and Energy ·
+                <a href="https://www.joongang.co.kr/article/21947035" target="_blank" rel="noopener">news</a> ·
+                <a href="https://www.youtube.com/watch?v=XYswxwDfI8E" target="_blank" rel="noopener">video</a>
+              </p>
+            </div>
+          </li>
+          <li>
+            <time>2017</time>
+            <div>
+              <p class="honor-title">4th Place, RoboCup Iran Open – Kidsize Humanoid Soccer</p>
+              <p class="honor-meta">
+                RoboCup Federation · Korean national team ·
+                <a href="https://www.youtube.com/watch?v=wy5d9Z1s0SM" target="_blank" rel="noopener">video</a>
+              </p>
+            </div>
+          </li>
+          <li>
+            <time>2017</time>
+            <div>
+              <p class="honor-title">Winner, RoboCup Korea – Kidsize Humanoid Soccer</p>
+              <p class="honor-meta">
+                RoboCup Federation · selected for the Korean national team ·
+                <a href="https://www.irobotnews.com/news/articleView.html?idxno=9910" target="_blank" rel="noopener">news</a>
+              </p>
+            </div>
+          </li>
+          <li>
+            <time>2016</time>
+            <div>
+              <p class="honor-title">3rd Award, Future-Robot Idea Presentation</p>
+              <p class="honor-meta">Korea Institute of Robot Convergence · Korean Intelligent Robot Contest</p>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Haebeom Jung · <a href="mailto:haebeom.jung@snu.ac.kr">haebeom.jung@snu.ac.kr</a></p>
+    </footer>
+
+    <script src="assets/js/main.js" defer></script>
+  </body>
+</html>

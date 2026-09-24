@@ -1,11 +1,3 @@
-**/*.map
-**/*.min.css
-**/*.min.js
-assets/css/main.scss
-assets/js/search/*.js
-assets/plotly/demo.html
-lighthouse_results/**
-_sass/font-awesome/*.scss
-_sass/tabler-icons/*.scss
-_scripts/*
-.venv/**
+assets/pdf/
+assets/img/
+*.min.*
