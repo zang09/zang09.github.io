@@ -231,21 +231,21 @@ button {
 .container {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 40px 20px 72px;
+  padding: 32px 20px 64px;
   display: grid;
-  gap: 16px;
+  gap: 12px;
 }
 .section {
-  margin-top: 28px;
+  margin-top: 20px;
 }
 .section-head {
   display: flex;
   align-items: baseline;
   gap: 10px;
-  padding: 0 6px 14px;
+  padding: 0 6px 10px;
 }
 .section-head h2 {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 650;
 }
 .section-note {
@@ -303,8 +303,8 @@ button {
   display: flex;
   align-items: stretch;
   justify-content: space-between;
-  gap: 24px;
-  padding: 32px 34px;
+  gap: 20px;
+  padding: 24px 28px;
   position: relative;
   overflow: hidden;
 }
@@ -328,7 +328,7 @@ button {
 .portrait {
   position: relative;
   flex: 0 0 auto;
-  width: 200px;
+  width: 180px;
   height: auto;
   align-self: stretch;
   object-fit: cover;
@@ -338,28 +338,28 @@ button {
 }
 .name {
   font-family: var(--serif);
-  font-size: 34px;
+  font-size: 30px;
   font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.1;
 }
 .role {
-  margin-top: 8px;
-  font-size: 15px;
+  margin-top: 6px;
+  font-size: 14px;
   font-weight: 650;
   color: var(--fg);
 }
 .affil {
-  margin-top: 2px;
-  font-size: 14.5px;
-  line-height: 1.5;
+  margin-top: 1px;
+  font-size: 14px;
+  line-height: 1.45;
 }
 .affil a {
   color: var(--accent);
 }
 .email {
-  margin-top: 4px;
-  font-size: 13.5px;
+  margin-top: 2px;
+  font-size: 13px;
   color: var(--fg-muted);
 }
 .email a {
@@ -369,10 +369,10 @@ button {
   color: var(--accent);
 }
 .affiliations {
-  margin-top: 18px;
+  margin-top: 12px;
 }
 .affiliations h2 {
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 650;
   color: var(--fg);
 }
@@ -383,7 +383,7 @@ button {
   justify-items: center;
 }
 .affiliations li {
-  font-size: 14px;
+  font-size: 13.5px;
 }
 .affiliations li::before {
   content: "•";
@@ -395,10 +395,10 @@ button {
   flex-wrap: wrap;
   justify-content: center;
   gap: 6px;
-  margin-top: 18px;
+  margin-top: 12px;
 }
 .topics li {
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.01em;
   color: var(--accent-ink);
@@ -411,7 +411,7 @@ button {
   flex-wrap: wrap;
   justify-content: center;
   gap: 6px;
-  margin-top: 16px;
+  margin-top: 12px;
 }
 .links a {
   display: inline-flex;
@@ -443,10 +443,10 @@ button {
 
 /* ---------- prose ---------- */
 .prose {
-  padding: 24px 34px;
+  padding: 18px 24px;
   display: grid;
-  gap: 12px;
-  font-size: 14.5px;
+  gap: 10px;
+  font-size: 14px;
   color: var(--fg-muted);
 }
 .prose strong {
@@ -509,27 +509,27 @@ button {
 
 /* ---------- news ---------- */
 .news {
-  padding: 8px 28px;
+  padding: 4px 22px;
 }
 .news li {
   position: relative;
   display: grid;
-  grid-template-columns: 92px 1fr;
-  gap: 18px;
-  padding: 14px 0;
+  grid-template-columns: 84px 1fr;
+  gap: 14px;
+  padding: 10px 0;
 }
 .news li + li {
   border-top: 1px solid var(--line);
 }
 .news time {
   color: var(--fg-faint);
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 500;
   font-variant-numeric: tabular-nums;
   padding-top: 2px;
 }
 .news p {
-  font-size: 14.5px;
+  font-size: 14px;
   color: var(--fg-muted);
 }
 .news p strong {
@@ -550,14 +550,14 @@ button {
 /* ---------- publications ---------- */
 .pubs {
   display: grid;
-  gap: 14px;
+  gap: 10px;
 }
 .pub {
   display: grid;
-  grid-template-columns: 272px 1fr;
-  gap: 24px;
+  grid-template-columns: 224px 1fr;
+  gap: 18px;
   align-items: start;
-  padding: 18px;
+  padding: 14px;
   transition:
     transform 0.18s ease,
     box-shadow 0.18s ease,
@@ -593,17 +593,17 @@ button {
   opacity: 1;
 }
 .pub-body {
-  padding: 4px 4px 4px 0;
+  padding: 2px 4px 2px 0;
   min-width: 0;
 }
 .pub-venue {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 6px 8px;
-  font-size: 13px;
+  gap: 4px 8px;
+  font-size: 12.5px;
   color: var(--fg-faint);
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 }
 .venue-tag {
   display: inline-block;
@@ -616,7 +616,7 @@ button {
   letter-spacing: 0.01em;
 }
 .pub-title {
-  font-size: 15.5px;
+  font-size: 15px;
   font-weight: 650;
   letter-spacing: -0.015em;
 }
@@ -628,8 +628,8 @@ button {
   text-decoration: none;
 }
 .pub-authors {
-  margin-top: 4px;
-  font-size: 13.5px;
+  margin-top: 3px;
+  font-size: 13px;
   color: var(--fg-muted);
 }
 .me {
@@ -637,16 +637,16 @@ button {
   font-weight: 600;
 }
 .pub-links {
-  margin-top: 14px;
+  margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
 }
 .pub-links a,
 .pub-links button {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 550;
-  padding: 5px 11px;
+  padding: 4px 9px;
   border-radius: 8px;
   border: 1px solid var(--line-strong);
   background: transparent;
@@ -1111,7 +1111,7 @@ button {
     display: none;
   }
   .name {
-    font-size: 30px;
+    font-size: 28px;
   }
   .role,
   .affil {
