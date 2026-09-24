@@ -79,7 +79,7 @@ body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font);
-  font-size: 15.5px;
+  font-size: 15px;
   line-height: 1.6;
   font-feature-settings: "cv11", "ss01";
   -webkit-font-smoothing: antialiased;
@@ -245,7 +245,7 @@ button {
   padding: 0 6px 14px;
 }
 .section-head h2 {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 650;
 }
 .section-note {
@@ -279,7 +279,7 @@ button {
   padding: 12px 6px 20px;
 }
 .page-head h1 {
-  font-size: 26px;
+  font-size: 24px;
   font-weight: 750;
   letter-spacing: -0.025em;
 }
@@ -336,20 +336,20 @@ button {
 }
 .name {
   font-family: var(--serif);
-  font-size: 40px;
+  font-size: 34px;
   font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.1;
 }
 .role {
   margin-top: 8px;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 650;
   color: var(--fg);
 }
 .affil {
   margin-top: 2px;
-  font-size: 15.5px;
+  font-size: 14.5px;
   line-height: 1.5;
 }
 .affil a {
@@ -357,7 +357,7 @@ button {
 }
 .email {
   margin-top: 4px;
-  font-size: 14.5px;
+  font-size: 13.5px;
   color: var(--fg-muted);
 }
 .email a {
@@ -370,7 +370,7 @@ button {
   margin-top: 18px;
 }
 .affiliations h2 {
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 650;
   color: var(--fg);
 }
@@ -380,7 +380,7 @@ button {
   gap: 2px;
 }
 .affiliations li {
-  font-size: 14.5px;
+  font-size: 14px;
 }
 .affiliations li::before {
   content: "•";
@@ -438,10 +438,10 @@ button {
 
 /* ---------- prose ---------- */
 .prose {
-  padding: 26px 40px;
+  padding: 24px 34px;
   display: grid;
   gap: 12px;
-  font-size: 15.5px;
+  font-size: 14.5px;
   color: var(--fg-muted);
 }
 .prose strong {
@@ -524,7 +524,7 @@ button {
   padding-top: 2px;
 }
 .news p {
-  font-size: 15px;
+  font-size: 14.5px;
   color: var(--fg-muted);
 }
 .news p strong {
@@ -611,7 +611,7 @@ button {
   letter-spacing: 0.01em;
 }
 .pub-title {
-  font-size: 16.5px;
+  font-size: 15.5px;
   font-weight: 650;
   letter-spacing: -0.015em;
 }
@@ -623,8 +623,8 @@ button {
   text-decoration: none;
 }
 .pub-authors {
-  margin-top: 5px;
-  font-size: 14px;
+  margin-top: 4px;
+  font-size: 13.5px;
   color: var(--fg-muted);
 }
 .me {
@@ -772,7 +772,7 @@ button {
 }
 .tl-title {
   margin-top: 2px;
-  font-size: 14.5px;
+  font-size: 14px;
   color: var(--fg);
 }
 .tl-sub {
@@ -923,12 +923,12 @@ button {
   min-width: 0;
 }
 .exp-title {
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 650;
 }
 .exp-org {
   margin-top: 2px;
-  font-size: 15px;
+  font-size: 14px;
   color: var(--fg-muted);
 }
 .exp-org a {
@@ -1108,7 +1108,7 @@ button {
     border-radius: 18px;
   }
   .name {
-    font-size: 32px;
+    font-size: 30px;
   }
   .role,
   .affil {
