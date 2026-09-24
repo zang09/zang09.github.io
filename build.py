@@ -620,25 +620,27 @@ class Site:
         home_main = f'''    <main id="main" class="container">
       <!-- ================= Hero ================= -->
       <section class="card hero" id="about">
-        <img class="portrait" src="assets/img/profile.jpg" width="900" height="900" alt="Portrait of {s["name"]}" />
-        <h1 class="name">{s["name"]}</h1>
-        <p class="role">{s["role"]}</p>
-        <p class="affil">
-          <a href="{s["department_url"]}" target="_blank" rel="noopener">{s["department"]}</a><br />
-          <a href="{s["university_url"]}" target="_blank" rel="noopener">{s["university"]}</a>
-        </p>
-        <p class="email"><span class="obf" data-user="{s["email_user"]}" data-domain="{s["email_domain"]}">{s["email_user"]} [at] {s["email_domain"].replace(".", " [dot] ")}</span></p>
+        <div class="hero-text">
+          <h1 class="name">{s["name"]}</h1>
+          <p class="role">{s["role"]}</p>
+          <p class="affil">
+            <a href="{s["department_url"]}" target="_blank" rel="noopener">{s["department"]}</a><br />
+            <a href="{s["university_url"]}" target="_blank" rel="noopener">{s["university"]}</a>
+          </p>
+          <p class="email"><span class="obf" data-user="{s["email_user"]}" data-domain="{s["email_domain"]}">{s["email_user"]} [at] {s["email_domain"].replace(".", " [dot] ")}</span></p>
 
-        <div class="affiliations">
-          <h2>Current Affiliations</h2>
-          <ul>{affils}
+          <div class="affiliations">
+            <h2>Current Affiliations</h2>
+            <ul>{affils}
+            </ul>
+          </div>
+
+          <ul class="topics" aria-label="Research interests">{topics}
+          </ul>
+          <ul class="links" aria-label="Contact and profiles">{hero_links}
           </ul>
         </div>
-
-        <ul class="topics" aria-label="Research interests">{topics}
-        </ul>
-        <ul class="links" aria-label="Contact and profiles">{hero_links}
-        </ul>
+        <img class="portrait" src="assets/img/profile.jpg" width="756" height="1000" alt="Portrait of {s["name"]}" />
       </section>
 
       <!-- ================= About ================= -->
