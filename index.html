@@ -354,8 +354,20 @@
           <a class="more-link" href="vitae/index.html">Full CV →</a>
         </div>
         <div class="card tl-card">
-          <h3 class="tl-group">Experience</h3>
-          <ul class="tl">
+          <ul class="tl" id="tl-list">
+            <li class="tl-item">
+              <div class="tl-logo"><img src="assets/img/logos/snu.svg" alt="Seoul National University logo" loading="lazy" /></div>
+              <div class="tl-body">
+                <div class="tl-head">
+                  <span class="tl-place">Seoul National University</span>
+                  <span class="tl-time">Sep. 2023 – Present</span>
+                </div>
+                <p class="tl-title">Ph.D. Student, Graduate School in AI</p>
+                <p class="tl-sub">
+                  SNU Visual &amp; Geometric Intelligence Lab · Advisor: <a href="https://jaesik.info/" target="_blank" rel="noopener">Jaesik Park</a>
+                </p>
+              </div>
+            </li>
             <li class="tl-item">
               <div class="tl-logo flush"><img src="assets/img/logos/kakao-mobility.png" alt="Kakao Mobility logo" loading="lazy" /></div>
               <div class="tl-body">
@@ -378,7 +390,7 @@
                 <p class="tl-sub">MMS sensor capture · UGV autonomous driving (SLAM, localization, sensor fusion, planning)</p>
               </div>
             </li>
-            <li class="tl-item">
+            <li class="tl-item tl-more" hidden>
               <div class="tl-logo flush"><img src="assets/img/logos/robotis.png" alt="ROBOTIS logo" loading="lazy" /></div>
               <div class="tl-body">
                 <div class="tl-head">
@@ -389,23 +401,7 @@
                 <p class="tl-sub">Open Manipulator verification and examples</p>
               </div>
             </li>
-          </ul>
-          <h3 class="tl-group">Education</h3>
-          <ul class="tl">
-            <li class="tl-item">
-              <div class="tl-logo"><img src="assets/img/logos/snu.svg" alt="Seoul National University logo" loading="lazy" /></div>
-              <div class="tl-body">
-                <div class="tl-head">
-                  <span class="tl-place">Seoul National University</span>
-                  <span class="tl-time">Sep. 2023 – Present</span>
-                </div>
-                <p class="tl-title">Ph.D. Student, Graduate School in AI</p>
-                <p class="tl-sub">
-                  SNU Visual &amp; Geometric Intelligence Lab · Advisor: <a href="https://jaesik.info/" target="_blank" rel="noopener">Jaesik Park</a>
-                </p>
-              </div>
-            </li>
-            <li class="tl-item">
+            <li class="tl-item tl-more" hidden>
               <div class="tl-logo"><img src="assets/img/logos/kwangwoon.png" alt="Kwangwoon University logo" loading="lazy" /></div>
               <div class="tl-body">
                 <div class="tl-head">
@@ -417,6 +413,12 @@
               </div>
             </li>
           </ul>
+          <button type="button" class="bio-toggle tl-toggle" aria-expanded="false" aria-controls="tl-list" data-toggle-class="tl-more">
+            <span class="when-closed">Show more</span><span class="when-open">Show less</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
         </div>
       </section>
 

@@ -715,18 +715,7 @@ button {
 
 /* ---------- home vitae timeline ---------- */
 .tl-card {
-  padding: 22px 26px 18px;
-}
-.tl-group {
-  font-size: 12px;
-  font-weight: 650;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--fg-faint);
-  margin: 18px 0 6px;
-}
-.tl-group:first-child {
-  margin-top: 0;
+  padding: 10px 26px 18px;
 }
 .tl {
   display: grid;
@@ -739,6 +728,12 @@ button {
 }
 .tl-item + .tl-item {
   border-top: 1px solid var(--line);
+}
+.tl-item[hidden] {
+  display: none;
+}
+.tl-toggle {
+  margin-top: 8px;
 }
 .tl-logo {
   width: 48px;
