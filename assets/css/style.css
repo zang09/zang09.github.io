@@ -323,6 +323,7 @@ button {
   position: relative;
   flex: 1 1 auto;
   min-width: 0;
+  text-align: center;
 }
 .portrait {
   position: relative;
@@ -379,6 +380,7 @@ button {
   margin-top: 2px;
   display: grid;
   gap: 2px;
+  justify-items: center;
 }
 .affiliations li {
   font-size: 14px;
@@ -391,6 +393,7 @@ button {
 .topics {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 6px;
   margin-top: 18px;
 }
@@ -406,18 +409,19 @@ button {
 .links {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 6px;
   margin-top: 16px;
 }
 .links a {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
+  gap: 5px;
+  padding: 5px 9px;
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-sm);
   color: var(--fg);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 550;
   background: var(--card);
   transition:
@@ -432,8 +436,8 @@ button {
   transform: translateY(-1px);
 }
 .links svg {
-  width: 15px;
-  height: 15px;
+  width: 13px;
+  height: 13px;
   color: var(--fg-muted);
 }
 
