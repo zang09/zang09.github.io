@@ -357,7 +357,7 @@
         <div class="section-head">
           <h2>Honors &amp; Awards</h2>
         </div>
-        <ul class="honors">
+        <ul class="honors" id="honors-list">
           <li class="card">
             <time>2026</time>
             <div>
@@ -380,37 +380,6 @@
             </div>
           </li>
           <li class="card">
-            <time>2019</time>
-            <div>
-              <p class="honor-title">Outstanding Mentor, Samsung Junior Software Creation Contest</p>
-              <p class="honor-meta">
-                Samsung Electronics · mentored team “Wassup”, top award in the high school division ·
-                <a href="http://bit.ly/33DtSrD" target="_blank" rel="noopener">news</a>
-              </p>
-            </div>
-          </li>
-          <li class="card">
-            <time>2018</time>
-            <div>
-              <p class="honor-title">2nd Place, IRC – Intelligent Humanoid Robot Sports</p>
-              <p class="honor-meta">
-                National Institute of Technology and Standards ·
-                <a href="https://www.joongang.co.kr/article/23046724" target="_blank" rel="noopener">news</a>
-              </p>
-            </div>
-          </li>
-          <li class="card">
-            <time>2018</time>
-            <div>
-              <p class="honor-title">3rd Place, R-BIZ Challenge – TurtleBot3 Autorace</p>
-              <p class="honor-meta">
-                Korea Institute for Robot Industry Advancement ·
-                <a href="https://www.joongang.co.kr/article/23139604" target="_blank" rel="noopener">news</a> ·
-                <a href="https://www.youtube.com/watch?v=2NJ0AukbBek" target="_blank" rel="noopener">video</a>
-              </p>
-            </div>
-          </li>
-          <li class="card">
             <time>2018</time>
             <div>
               <p class="honor-title">3rd Place, RoboCup 2018 Montréal – Kidsize Humanoid Technical Challenge</p>
@@ -418,16 +387,6 @@
                 RoboCup Federation · team leader ·
                 <a href="https://www.joongang.co.kr/article/22752603" target="_blank" rel="noopener">news</a> ·
                 <a href="https://www.youtube.com/watch?v=oUhVMDQ7Fwc" target="_blank" rel="noopener">video</a>
-              </p>
-            </div>
-          </li>
-          <li class="card">
-            <time>2017</time>
-            <div>
-              <p class="honor-title">Achievement Award</p>
-              <p class="honor-meta">
-                Kwangwoon University · university-wide recognition ·
-                <a href="https://www.metroseoul.co.kr/article/2017010500141" target="_blank" rel="noopener">news</a>
               </p>
             </div>
           </li>
@@ -442,7 +401,48 @@
               </p>
             </div>
           </li>
-          <li class="card">
+          <li class="card honor-more" hidden>
+            <time>2019</time>
+            <div>
+              <p class="honor-title">Outstanding Mentor, Samsung Junior Software Creation Contest</p>
+              <p class="honor-meta">
+                Samsung Electronics · mentored team “Wassup”, top award in the high school division ·
+                <a href="http://bit.ly/33DtSrD" target="_blank" rel="noopener">news</a>
+              </p>
+            </div>
+          </li>
+          <li class="card honor-more" hidden>
+            <time>2018</time>
+            <div>
+              <p class="honor-title">2nd Place, IRC – Intelligent Humanoid Robot Sports</p>
+              <p class="honor-meta">
+                National Institute of Technology and Standards ·
+                <a href="https://www.joongang.co.kr/article/23046724" target="_blank" rel="noopener">news</a>
+              </p>
+            </div>
+          </li>
+          <li class="card honor-more" hidden>
+            <time>2018</time>
+            <div>
+              <p class="honor-title">3rd Place, R-BIZ Challenge – TurtleBot3 Autorace</p>
+              <p class="honor-meta">
+                Korea Institute for Robot Industry Advancement ·
+                <a href="https://www.joongang.co.kr/article/23139604" target="_blank" rel="noopener">news</a> ·
+                <a href="https://www.youtube.com/watch?v=2NJ0AukbBek" target="_blank" rel="noopener">video</a>
+              </p>
+            </div>
+          </li>
+          <li class="card honor-more" hidden>
+            <time>2017</time>
+            <div>
+              <p class="honor-title">Achievement Award</p>
+              <p class="honor-meta">
+                Kwangwoon University · university-wide recognition ·
+                <a href="https://www.metroseoul.co.kr/article/2017010500141" target="_blank" rel="noopener">news</a>
+              </p>
+            </div>
+          </li>
+          <li class="card honor-more" hidden>
             <time>2017</time>
             <div>
               <p class="honor-title">4th Place, RoboCup Iran Open – Kidsize Humanoid Soccer</p>
@@ -452,7 +452,7 @@
               </p>
             </div>
           </li>
-          <li class="card">
+          <li class="card honor-more" hidden>
             <time>2017</time>
             <div>
               <p class="honor-title">Winner, RoboCup Korea – Kidsize Humanoid Soccer</p>
@@ -462,7 +462,7 @@
               </p>
             </div>
           </li>
-          <li class="card">
+          <li class="card honor-more" hidden>
             <time>2016</time>
             <div>
               <p class="honor-title">3rd Award, Future-Robot Idea Presentation</p>
@@ -470,6 +470,14 @@
             </div>
           </li>
         </ul>
+        <div class="honors-more">
+          <button type="button" class="bio-toggle" aria-expanded="false" aria-controls="honors-list" data-toggle-class="honor-more">
+            <span class="when-closed">Show all honors</span><span class="when-open">Show selected only</span>
+            <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
       </section>
     </main>
 

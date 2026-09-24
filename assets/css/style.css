@@ -650,6 +650,15 @@ button {
   text-decoration-color: currentColor;
 }
 
+.honors li[hidden] {
+  display: none;
+}
+.honors-more {
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+}
+
 /* ---------- footer ---------- */
 .site-footer {
   padding: 8px 16px 40px;
