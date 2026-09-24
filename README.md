@@ -21,7 +21,8 @@ The home page shows a subset (latest 4 news, selected honors); the sub-pages sho
 - **News**: add an `<li>` to `<ul class="news">` in `news/index.html`, and to `index.html` if it is among the latest 4 (remove the oldest there).
 - **Publication**: copy an existing `<li class="card pub">` block into `publications/index.html` (and `index.html` if selected); drop `name.jpg`, `name.webm`, `name.mp4` into `assets/img/papers/`.
 - **Honors**: add an `<li class="card">` to `<ul class="honors">` in `honors/index.html` (year-descending), and to `index.html` if selected.
-- **Nav**: the header is duplicated in each page; keep the four copies in sync.
+- **Experience / Vitae**: edit the cards in `experience/index.html` and the rows in `vitae/index.html`; replace the PDF in `assets/pdf/` and update the "Last updated" note.
+- **Nav**: the header is duplicated in each page (six files); keep the copies in sync.
 - **CV**: replace `assets/pdf/CV_HaebeomJung.pdf`.
 
 Preview locally with any static server, e.g. `python3 -m http.server 8000`.

@@ -21,6 +21,15 @@
     });
   }
 
+  /* ---------- de-obfuscate email ---------- */
+  document.querySelectorAll(".obf").forEach(function (el) {
+    var addr = el.getAttribute("data-user") + "@" + el.getAttribute("data-domain");
+    var a = document.createElement("a");
+    a.href = "mailto:" + addr;
+    a.textContent = addr;
+    el.replaceWith(a);
+  });
+
   /* ---------- hover / tap video previews ---------- */
   var canHover = window.matchMedia("(hover: hover)").matches;
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
