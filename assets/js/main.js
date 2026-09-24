@@ -56,18 +56,29 @@
       card.addEventListener("mouseleave", stop);
       box.addEventListener("focusin", play);
       box.addEventListener("focusout", stop);
-    } else if (!reduced && "IntersectionObserver" in window) {
-      // On touch devices, autoplay while the thumbnail is mostly visible.
-      var io = new IntersectionObserver(
-        function (entries) {
-          entries.forEach(function (e) {
-            if (e.isIntersecting) play();
-            else stop();
-          });
-        },
-        { threshold: 0.6 },
-      );
-      io.observe(box);
+    } else {
+      // Touch devices: tap the thumbnail to play/pause; the title still opens the project.
+      box.classList.add("tap-to-play");
+      box.removeAttribute("aria-hidden");
+      box.setAttribute("tabindex", "0");
+      box.setAttribute("role", "button");
+      box.setAttribute("aria-label", "Play preview");
+      box.addEventListener("click", function (ev) {
+        ev.preventDefault();
+        if (box.classList.contains("playing")) stop();
+        else play();
+      });
+      if ("IntersectionObserver" in window) {
+        // Pause when scrolled away so only the visible preview plays.
+        new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (!e.isIntersecting) stop();
+            });
+          },
+          { threshold: 0.2 },
+        ).observe(box);
+      }
     }
   });
 
@@ -83,6 +94,15 @@
       btn.setAttribute("aria-expanded", String(!open));
       nodes.forEach(function (n) {
         n.hidden = open;
+        if (!open) {
+          // Safari does not always fetch images that were inside a hidden element.
+          n.querySelectorAll("img").forEach(function (img) {
+            if (!img.complete || img.naturalWidth === 0) {
+              img.loading = "eager";
+              img.setAttribute("src", img.getAttribute("src"));
+            }
+          });
+        }
       });
     });
   });
