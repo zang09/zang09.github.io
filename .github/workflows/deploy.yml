@@ -28,6 +28,9 @@ jobs:
         with:
           repository: zang09/CV_HaebeomJung
           path: cv-src
+          # The CV repository is private, so the default GITHUB_TOKEN cannot read it.
+          # CV_REPO_TOKEN: fine-grained PAT with "Contents: read" on zang09/CV_HaebeomJung.
+          token: ${{ secrets.CV_REPO_TOKEN }}
 
       - name: Compile CV PDF
         uses: xu-cheng/latex-action@v3

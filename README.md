@@ -52,6 +52,8 @@ Awesome-CV's row spacing changed with newer TeX Live releases: on TeX Live 2024+
 
 `.github/workflows/deploy.yml` runs on every push to `main`, daily at 03:00 UTC, on manual dispatch, and on a `cv-updated` repository dispatch. It checks out the CV repo, compiles `cv.pdf` with XeLaTeX on TeX Live 2021 (the same release Overleaf uses for this project, so spacing matches the Overleaf preview), runs `build.py`, checks Prettier formatting of the hand-written sources, and publishes the tree to `gh-pages`. `CNAME` keeps the custom domain `www.haebeom.com`.
 
+The CV repository is private, so this repository needs a secret `CV_REPO_TOKEN` (fine-grained PAT with Contents read on `zang09/CV_HaebeomJung`) for the checkout step.
+
 To make Overleaf pushes redeploy immediately, copy `.github/cv-repo/notify-site.yml` into the CV repository as `.github/workflows/notify-site.yml` and add a `SITE_DISPATCH_TOKEN` secret there (fine-grained PAT with Contents read/write on this repo). Without it, the daily schedule still picks up changes.
 
 Before pushing, `npx prettier . --check` (also enforced by the `pre-push` hook; enable with `git config core.hooksPath .githooks`). Generated files are listed in `.prettierignore`.
