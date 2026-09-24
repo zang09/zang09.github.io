@@ -713,6 +713,101 @@ button {
   white-space: pre;
 }
 
+/* ---------- home vitae timeline ---------- */
+.tl-card {
+  padding: 22px 26px 18px;
+}
+.tl-lede {
+  font-size: 14.5px;
+  color: var(--fg-muted);
+  margin-bottom: 6px;
+}
+.tl-lede a {
+  color: var(--fg);
+  font-weight: 500;
+  border-bottom: 1px solid var(--line-strong);
+}
+.tl-lede a:hover {
+  text-decoration: none;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.tl-group {
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  margin: 18px 0 6px;
+}
+.tl {
+  display: grid;
+}
+.tl-item {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 16px;
+  padding: 12px 0;
+}
+.tl-item + .tl-item {
+  border-top: 1px solid var(--line);
+}
+.tl-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 5px;
+}
+.tl-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.tl-body {
+  min-width: 0;
+}
+.tl-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.tl-place {
+  font-size: 15px;
+  font-weight: 650;
+}
+.tl-time {
+  font-size: 13px;
+  color: var(--fg-faint);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.tl-title {
+  margin-top: 2px;
+  font-size: 14.5px;
+  color: var(--fg);
+}
+.tl-sub {
+  margin-top: 1px;
+  font-size: 13.5px;
+  color: var(--fg-muted);
+}
+.tl-sub a {
+  color: var(--fg-muted);
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+}
+.tl-sub a:hover {
+  color: var(--accent);
+  text-decoration-color: currentColor;
+}
+
 /* ---------- honors ---------- */
 .honors {
   display: grid;
@@ -833,21 +928,14 @@ button {
   height: 100%;
   object-fit: contain;
 }
-.exp-logo.wide {
-  width: 112px;
-}
-.exp-logo.dark {
-  background: #3c3c3c;
+.exp-logo.flush,
+.tl-logo.flush {
+  padding: 0;
   border-color: transparent;
-  padding: 10px 8px;
 }
-.exp-logo.mono {
-  font-weight: 700;
-  font-size: 15px;
-  letter-spacing: 0.02em;
-  color: var(--accent-ink);
-  background: var(--accent-soft);
-  border-color: transparent;
+.exp-logo.flush img,
+.tl-logo.flush img {
+  object-fit: cover;
 }
 .exp-body {
   min-width: 0;
@@ -1026,6 +1114,19 @@ button {
   .honors {
     grid-template-columns: 1fr;
   }
+  .tl-card {
+    padding: 18px 18px 14px;
+  }
+  .tl-item {
+    grid-template-columns: 40px 1fr;
+    gap: 12px;
+  }
+  .tl-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    padding: 4px;
+  }
   .exp {
     grid-template-columns: 44px 1fr;
     gap: 14px;
@@ -1037,9 +1138,6 @@ button {
     font-size: 13px;
     border-radius: 11px;
     padding: 4px;
-  }
-  .exp-logo.wide {
-    width: 88px;
   }
   .cv-list {
     padding: 4px 18px;
