@@ -729,7 +729,7 @@ class Site:
 
         # ---------------- vitae
         self.write("vitae/index.html", self.subpage(
-            current="vitae/index.html", title="Curriculum Vitae", lede="Generated from the same LaTeX source as the PDF.",
+            current="vitae/index.html", title="Curriculum Vitae", lede="",
             desc="Curriculum vitae of Haebeom Jung: education, experience, publications, patents, service, and skills.", path="/vitae/",
             body=self.vitae_body()))
 
