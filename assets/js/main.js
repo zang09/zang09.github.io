@@ -40,7 +40,6 @@
 
     function play() {
       if (reduced) return;
-      if (video.preload === "none") video.preload = "auto";
       var p = video.play();
       if (p && p.catch) p.catch(function () {});
       box.classList.add("playing");
@@ -52,16 +51,11 @@
     }
 
     if (canHover) {
-      box.addEventListener("mouseenter", play);
-      box.addEventListener("mouseleave", stop);
-      var pub = box.closest(".pub");
-      if (pub) {
-        var title = pub.querySelector(".pub-title a");
-        if (title) {
-          title.addEventListener("mouseenter", play);
-          title.addEventListener("mouseleave", stop);
-        }
-      }
+      var card = box.closest(".pub") || box;
+      card.addEventListener("mouseenter", play);
+      card.addEventListener("mouseleave", stop);
+      box.addEventListener("focusin", play);
+      box.addEventListener("focusout", stop);
     } else if (!reduced && "IntersectionObserver" in window) {
       // On touch devices, autoplay while the thumbnail is mostly visible.
       var io = new IntersectionObserver(
