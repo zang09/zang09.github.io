@@ -12,7 +12,6 @@ Personal academic homepage of Haebeom Jung. A single static page with no build s
 | `assets/js/main.js`                 | Theme toggle, hover video previews, BibTeX toggles |
 | `assets/img/papers/`                | Paper thumbnails: `<name>.jpg` + `.webm` + `.mp4`  |
 | `assets/pdf/`                       | CV                                                 |
-| `cv/`, `honors_and_awards/`         | Redirect stubs preserving old al-folio URLs        |
 
 ## Editing
 
