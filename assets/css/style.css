@@ -717,21 +717,6 @@ button {
 .tl-card {
   padding: 22px 26px 18px;
 }
-.tl-lede {
-  font-size: 14.5px;
-  color: var(--fg-muted);
-  margin-bottom: 6px;
-}
-.tl-lede a {
-  color: var(--fg);
-  font-weight: 500;
-  border-bottom: 1px solid var(--line-strong);
-}
-.tl-lede a:hover {
-  text-decoration: none;
-  color: var(--accent);
-  border-color: var(--accent);
-}
 .tl-group {
   font-size: 12px;
   font-weight: 650;
