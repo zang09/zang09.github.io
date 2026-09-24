@@ -1,0 +1,89 @@
+(function () {
+  "use strict";
+
+  /* ---------- theme toggle ---------- */
+  var root = document.documentElement;
+  var toggle = document.getElementById("theme-toggle");
+  var mq = window.matchMedia("(prefers-color-scheme: dark)");
+
+  function currentTheme() {
+    var t = root.getAttribute("data-theme");
+    if (t) return t;
+    return mq.matches ? "dark" : "light";
+  }
+  if (toggle) {
+    toggle.addEventListener("click", function () {
+      var next = currentTheme() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try {
+        localStorage.setItem("theme", next);
+      } catch (e) {}
+    });
+  }
+
+  /* ---------- de-obfuscate email ---------- */
+  document.querySelectorAll(".obf").forEach(function (el) {
+    var addr = el.getAttribute("data-user") + "@" + el.getAttribute("data-domain");
+    var a = document.createElement("a");
+    a.href = "mailto:" + addr;
+    a.textContent = addr;
+    el.replaceWith(a);
+  });
+
+  /* ---------- hover / tap video previews ---------- */
+  var canHover = window.matchMedia("(hover: hover)").matches;
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  document.querySelectorAll(".pub-media").forEach(function (box) {
+    var video = box.querySelector("video");
+    if (!video) return;
+
+    function play() {
+      if (reduced) return;
+      var p = video.play();
+      if (p && p.catch) p.catch(function () {});
+      box.classList.add("playing");
+    }
+    function stop() {
+      video.pause();
+      video.currentTime = 0;
+      box.classList.remove("playing");
+    }
+
+    if (canHover) {
+      var card = box.closest(".pub") || box;
+      card.addEventListener("mouseenter", play);
+      card.addEventListener("mouseleave", stop);
+      box.addEventListener("focusin", play);
+      box.addEventListener("focusout", stop);
+    } else if (!reduced && "IntersectionObserver" in window) {
+      // On touch devices, autoplay while the thumbnail is mostly visible.
+      var io = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) play();
+            else stop();
+          });
+        },
+        { threshold: 0.6 },
+      );
+      io.observe(box);
+    }
+  });
+
+  /* ---------- disclosure toggles (BibTeX, full bio) ---------- */
+  document.querySelectorAll(".bib-toggle, .bio-toggle").forEach(function (btn) {
+    var target = document.getElementById(btn.getAttribute("aria-controls"));
+    if (!target) return;
+    var cls = btn.getAttribute("data-toggle-class");
+    // Either toggle the target itself, or every descendant carrying data-toggle-class.
+    var nodes = cls ? target.querySelectorAll("." + cls) : [target];
+    btn.addEventListener("click", function () {
+      var open = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!open));
+      nodes.forEach(function (n) {
+        n.hidden = open;
+      });
+    });
+  });
+})();

@@ -1,0 +1,82 @@
+[
+  {
+    "match": "ROBOCUP CANADA",
+    "title": "3rd Place, RoboCup 2018 Montréal – Kidsize Humanoid Technical Challenge",
+    "awarder": "RoboCup Federation",
+    "summary": "team leader",
+    "news": "https://www.joongang.co.kr/article/22752603",
+    "selected": true
+  },
+  {
+    "match": "ROBOCUP IRAN",
+    "title": "4th Place, RoboCup Iran Open – Kidsize Humanoid Soccer",
+    "awarder": "RoboCup Federation",
+    "summary": "Korean national team"
+  },
+  {
+    "match": "R-BIZ",
+    "title": "3rd Place, R-BIZ Challenge – TurtleBot3 Autorace",
+    "awarder": "Korea Institute for Robot Industry Advancement",
+    "news": "https://www.joongang.co.kr/article/23139604"
+  },
+  {
+    "match": "IRC, Intelligence Humanoid Robot Sports 2nd Place",
+    "title": "2nd Place, IRC – Intelligent Humanoid Robot Sports",
+    "awarder": "National Institute of Technology and Standards",
+    "news": "https://www.joongang.co.kr/article/23046724"
+  },
+  {
+    "match": "IRC, Intelligence Humanoid Robot Sports Winner",
+    "title": "Winner, IRC – Intelligent Humanoid Robot Sports",
+    "awarder": "Ministry of Trade, Industry and Energy",
+    "news": "https://www.joongang.co.kr/article/21947035",
+    "selected": true
+  },
+  {
+    "match": "ROBOCUP KOREA",
+    "title": "Winner, RoboCup Korea – Kidsize Humanoid Soccer",
+    "awarder": "RoboCup Federation",
+    "summary": "selected for the Korean national team",
+    "news": "https://www.irobotnews.com/news/articleView.html?idxno=9910"
+  },
+  {
+    "match": "KIRO",
+    "title": "3rd Award, Future-Robot Idea Presentation",
+    "awarder": "Korea Institute of Robot Convergence",
+    "summary": "Korean Intelligent Robot Contest"
+  },
+  {
+    "match": "Samsung Electronics Junior",
+    "title": "Outstanding Mentor, Samsung Junior Software Creation Contest",
+    "awarder": "Samsung Electronics",
+    "summary": "mentored team “Wassup”, top award in the high school division",
+    "news": "http://bit.ly/33DtSrD"
+  },
+  {
+    "match": "Spread the name",
+    "title": "Achievement Award",
+    "awarder": "Kwangwoon University",
+    "summary": "university-wide recognition",
+    "news": "https://www.metroseoul.co.kr/article/2017010500141"
+  },
+  {
+    "match": "Jeongheon",
+    "title": "Jeongheon Foundation Ph.D. Scholarship",
+    "awarder": "Jeongheon Foundation",
+    "summary": "full scholarship for doctoral studies",
+    "selected": true
+  },
+  {
+    "match": "AI Fellowship",
+    "title": "SNU AI Fellowship (M.S. Program)",
+    "awarder": "Seoul National University",
+    "summary": "four-semester full scholarship",
+    "selected": true
+  },
+  {
+    "match": "Robotics Competition Team",
+    "title": "Robotics Competition Team Scholarship",
+    "awarder": "Kwangwoon University",
+    "summary": "full scholarship, 2017–2019"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "match": "Articulated Object Reconstruction from",
+    "slug": "rest2art",
+    "preview": "rest2art",
+    "tags": ["ECCV 2026"],
+    "venue_full": "European Conference on Computer Vision",
+    "project": "https://da-eun07.github.io/rest2art/",
+    "arxiv": "https://arxiv.org/abs/2607.27749",
+    "code": null,
+    "doi": null,
+    "bibtex": "@inproceedings{lee2026articulated,\n  title     = {Articulated Object Reconstruction from Rest-State Observation},\n  author    = {Lee, Daeun and Lee, Jaeah and Kim, Woosung and Jung, Haebeom and Park, Jaesik},\n  booktitle = {European Conference on Computer Vision (ECCV)},\n  year      = {2026}\n}"
+  },
+  {
+    "match": "Targetless LiDAR-Camera Calibration wi",
+    "slug": "tlc-calib",
+    "preview": "tlc-calib",
+    "tags": ["RA-L 2026", "ICRA 2026"],
+    "venue_full": "IEEE Robotics and Automation Letters, vol. 11, no. 4",
+    "project": "https://zang09.github.io/tlc-calib-site/",
+    "arxiv": "https://arxiv.org/abs/2504.04597",
+    "code": "https://github.com/SNU-VGILab/TLC-Calib",
+    "doi": "10.1109/LRA.2026.3665066",
+    "bibtex": "@article{jung2026targetless,\n  title   = {Targetless LiDAR-Camera Calibration with Neural Gaussian Splatting},\n  author  = {Jung, Haebeom and Kim, Namtae and Kim, Jungwoo and Park, Jaesik},\n  journal = {IEEE Robotics and Automation Letters},\n  volume  = {11},\n  number  = {4},\n  pages   = {4777--4784},\n  year    = {2026},\n  doi     = {10.1109/LRA.2026.3665066}\n}"
+  },
+  {
+    "match": "Metropolis-Hastings Sampling for 3D Ga",
+    "slug": "mh-3dgs",
+    "preview": "mh-3dgs",
+    "tags": ["NeurIPS 2025"],
+    "venue_full": "Advances in Neural Information Processing Systems, vol. 38",
+    "project": "https://hjhyunjinkim.github.io/MH-3DGS/",
+    "arxiv": "https://arxiv.org/abs/2506.12945",
+    "code": "https://github.com/hjhyunjinkim/MH-3DGS",
+    "doi": null,
+    "bibtex": "@inproceedings{kim2025metropolis,\n  title     = {Metropolis-Hastings Sampling for 3D Gaussian Reconstruction},\n  author    = {Kim, Hyunjin and Jung, Haebeom and Park, Jaesik},\n  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},\n  volume    = {38},\n  pages     = {142862--142887},\n  year      = {2025}\n}"
+  }
+]

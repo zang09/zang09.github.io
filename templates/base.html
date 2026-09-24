@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{TITLE}}</title>
+    <meta name="description" content="{{DESC}}" />
+    <meta name="keywords" content="Haebeom Jung, 3D reconstruction, Gaussian splatting, LiDAR-camera calibration, SLAM, Seoul National University" />
+    <meta name="author" content="Haebeom Jung" />
+    <link rel="canonical" href="{{URL}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{TITLE}}" />
+    <meta
+      property="og:description"
+      content="Ph.D. student at Seoul National University. Sensor calibration, novel view synthesis, 3D reconstruction."
+    />
+    <meta property="og:url" content="{{URL}}" />
+    <meta property="og:image" content="https://www.haebeom.com/assets/img/profile.jpg" />
+    <link rel="icon" type="image/png" href="{{ROOT}}assets/img/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:wght@600&family=JetBrains+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ROOT}}assets/css/style.css" />
+    <script>
+      try {
+        var t = localStorage.getItem("theme");
+        if (t) document.documentElement.setAttribute("data-theme", t);
+      } catch (e) {}
+    </script>
+    {{LDJSON}}
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <nav class="nav" aria-label="Sections">
+        <a class="brand" href="{{ROOT}}index.html">Haebeom Jung</a>
+        <div class="nav-links">{{NAV}}</div>
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2" />
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+            />
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </nav>
+    </header>
+
+    {{MAIN}}
+
+    <footer class="site-footer">
+      <p>© 2026 Haebeom Jung · <a href="mailto:haebeom.jung@snu.ac.kr">haebeom.jung@snu.ac.kr</a></p>
+    </footer>
+    <script src="{{ROOT}}assets/js/main.js" defer></script>
+  </body>
+</html>
