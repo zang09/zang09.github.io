@@ -28,7 +28,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 CV_REPO = "https://github.com/zang09/CV_HaebeomJung.git"
-CV_DIR = ROOT / "cv-src"
+# A sibling clone named CV_HaebeomJung/ (e.g. one you cloned yourself) is used if present.
+CV_DIR = next((d for d in (ROOT / "CV_HaebeomJung", ROOT / "cv-src") if d.exists()), ROOT / "cv-src")
 SITE_URL = "https://www.haebeom.com"
 
 
@@ -615,7 +616,7 @@ class Site:
         home_main = f'''    <main id="main" class="container">
       <!-- ================= Hero ================= -->
       <section class="card hero" id="about">
-        <img class="portrait" src="assets/img/profile.jpg" width="650" height="900" alt="Portrait of {s["name"]}" />
+        <img class="portrait" src="assets/img/profile.jpg" width="900" height="900" alt="Portrait of {s["name"]}" />
         <h1 class="name">{s["name"]}</h1>
         <p class="role">{s["role"]}</p>
         <p class="affil">
