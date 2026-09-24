@@ -301,7 +301,7 @@ button {
 /* ---------- hero ---------- */
 .hero {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-between;
   gap: 24px;
   padding: 32px 34px;
@@ -328,7 +328,8 @@ button {
   position: relative;
   flex: 0 0 auto;
   width: 200px;
-  height: 264px;
+  height: auto;
+  align-self: stretch;
   object-fit: cover;
   object-position: center 30%;
   border-radius: 22px;
@@ -1105,6 +1106,7 @@ button {
   .portrait {
     width: 128px;
     height: 160px;
+    align-self: flex-start;
     border-radius: 18px;
   }
   .name {
