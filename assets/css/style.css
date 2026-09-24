@@ -1104,10 +1104,7 @@ button {
     height: 320px;
   }
   .portrait {
-    width: 128px;
-    height: 160px;
-    align-self: flex-start;
-    border-radius: 18px;
+    display: none;
   }
   .name {
     font-size: 30px;
