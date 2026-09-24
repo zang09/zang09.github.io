@@ -1,0 +1,38 @@
+{
+  "Kakao Mobility": {
+    "logo": "kakao-mobility.png",
+    "flush": true,
+    "url": "https://www.kakaomobility.com/",
+    "summary": "Self-driving data collection · visual SLAM and localization"
+  },
+  "Stryx": {
+    "logo": "stryx.png",
+    "summary": "MMS sensor capture · UGV autonomous driving (SLAM, localization, sensor fusion, planning)"
+  },
+  "ROBOTIS": {
+    "logo": "robotis.png",
+    "flush": true,
+    "url": "https://www.robotis.com/",
+    "summary": "Open Manipulator verification and examples"
+  },
+  "Seoul National University": {
+    "logo": "snu.svg",
+    "url": "https://www.snu.ac.kr/",
+    "note": "Graduate School in AI · SNU Visual &amp; Geometric Intelligence Lab, advised by Prof. Jaesik Park",
+    "summary": "SNU Visual &amp; Geometric Intelligence Lab · Advisor: <a href=\"https://jaesik.info/\" target=\"_blank\" rel=\"noopener\">Jaesik Park</a>"
+  },
+  "KwangWoon University": {
+    "logo": "kwangwoon.png",
+    "url": "https://www.kw.ac.kr/",
+    "note": "Includes military service, 2019–2021",
+    "summary": "Full scholarship · RO:BIT humanoid team leader (2018)"
+  },
+  "POSTECH": {
+    "logo": "postech.svg",
+    "url": "https://www.postech.ac.kr/"
+  },
+  "UNIST": {
+    "logo": "unist.svg",
+    "url": "https://www.unist.ac.kr/"
+  }
+}

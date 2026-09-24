@@ -1001,14 +1001,47 @@ button {
 .cv-list {
   padding: 6px 24px;
 }
-.cv-list li {
+.cv-list > li {
   display: grid;
   grid-template-columns: 132px 1fr;
   gap: 18px;
   padding: 14px 0;
 }
-.cv-list li + li {
+.cv-list > li + li {
   border-top: 1px solid var(--line);
+}
+.cv-list > li.cv-sublabel {
+  display: block;
+  padding: 16px 0 4px;
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--fg-faint);
+  border-top: 0;
+}
+.cv-items {
+  margin-top: 6px;
+  padding-left: 18px;
+  list-style: disc;
+  display: grid;
+  gap: 4px;
+  font-size: 13.5px;
+  color: var(--fg-muted);
+}
+.cv-items a,
+.cv-extra a,
+.cv-title a {
+  color: var(--fg);
+  font-weight: 500;
+  border-bottom: 1px solid var(--line-strong);
+}
+.cv-items a:hover,
+.cv-extra a:hover,
+.cv-title a:hover {
+  text-decoration: none;
+  color: var(--accent);
+  border-color: var(--accent);
 }
 .cv-when {
   font-size: 13.5px;
@@ -1125,7 +1158,7 @@ button {
   .cv-list {
     padding: 4px 18px;
   }
-  .cv-list li {
+  .cv-list > li {
     grid-template-columns: 1fr;
     gap: 2px;
   }

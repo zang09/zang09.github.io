@@ -1,22 +1,54 @@
-name: Deploy site
+name: Build and deploy site
 
 on:
   push:
     branches: [main]
+  repository_dispatch:
+    types: [cv-updated] # sent by the CV repository when Overleaf pushes
+  schedule:
+    - cron: "0 3 * * *" # daily safety net in case the dispatch is not configured
   workflow_dispatch:
 
 permissions:
   contents: write
 
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout site
         uses: actions/checkout@v4
 
-      - name: Check formatting
+      - name: Checkout CV (LaTeX source)
+        uses: actions/checkout@v4
+        with:
+          repository: zang09/CV_HaebeomJung
+          path: cv-src
+
+      - name: Compile CV PDF
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: cv.tex
+          working_directory: cv-src
+          latexmk_use_xelatex: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate pages from CV and data
+        run: python3 build.py --no-fetch
+
+      - name: Check formatting of hand-written sources
         run: npx --yes prettier@3 . --check
+
+      - name: Remove build-only files from the deploy tree
+        run: rm -rf cv-src node_modules
 
       - name: Deploy to gh-pages
         uses: JamesIves/github-pages-deploy-action@v4

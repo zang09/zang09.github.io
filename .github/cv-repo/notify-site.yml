@@ -1,0 +1,21 @@
+# Copy this file into the CV repository (zang09/CV_HaebeomJung) as
+#   .github/workflows/notify-site.yml
+# and add a repository secret named SITE_DISPATCH_TOKEN holding a fine-grained
+# personal access token with "Contents: read and write" on zang09/zang09.github.io.
+# Every push from Overleaf then rebuilds and redeploys the website.
+name: Notify website
+
+on:
+  push:
+    branches: [main, master]
+
+jobs:
+  dispatch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger site rebuild
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.SITE_DISPATCH_TOKEN }}
+          repository: zang09/zang09.github.io
+          event-type: cv-updated
