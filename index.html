@@ -189,7 +189,7 @@
         <div class="section-head">
           <h2>News</h2>
         </div>
-        <ul class="card news">
+        <ul class="card news" id="news-list">
           <li>
             <time datetime="2026-06">Jun 2026</time>
             <p>
@@ -216,16 +216,24 @@
               <strong>IEEE RA-L</strong>.
             </p>
           </li>
-          <li>
+          <li class="news-older" hidden>
             <time datetime="2025-09">Sep 2025</time>
             <p>
               <a href="https://hjhyunjinkim.github.io/MH-3DGS/" target="_blank" rel="noopener">MH-3DGS</a>, our work on 3DGS densification sampling,
               is accepted to <strong>NeurIPS 2025</strong>.
             </p>
           </li>
-          <li>
+          <li class="news-older" hidden>
             <time datetime="2024-09">Sep 2024</time>
             <p>Received M.S. research funding from the Korean Ministry of Education, awarded to 750 master's students nationwide.</p>
+          </li>
+          <li class="news-more">
+            <button type="button" class="bio-toggle news-toggle" aria-expanded="false" aria-controls="news-list" data-toggle-class="news-older">
+              <span class="when-closed">Show older news</span><span class="when-open">Show less</span>
+              <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
           </li>
         </ul>
       </section>

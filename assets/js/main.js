@@ -72,10 +72,15 @@
   document.querySelectorAll(".bib-toggle, .bio-toggle").forEach(function (btn) {
     var target = document.getElementById(btn.getAttribute("aria-controls"));
     if (!target) return;
+    var cls = btn.getAttribute("data-toggle-class");
+    // Either toggle the target itself, or every descendant carrying data-toggle-class.
+    var nodes = cls ? target.querySelectorAll("." + cls) : [target];
     btn.addEventListener("click", function () {
       var open = btn.getAttribute("aria-expanded") === "true";
       btn.setAttribute("aria-expanded", String(!open));
-      target.hidden = open;
+      nodes.forEach(function (n) {
+        n.hidden = open;
+      });
     });
   });
 })();

@@ -465,6 +465,14 @@ button {
   border-color: var(--accent);
 }
 
+.news li.news-more {
+  display: block;
+  padding: 12px 0 14px;
+}
+.news li[hidden] {
+  display: none;
+}
+
 /* ---------- publications ---------- */
 .pubs {
   display: grid;
