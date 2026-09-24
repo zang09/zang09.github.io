@@ -79,13 +79,18 @@
 
     <main id="top" class="container">
       <!-- ================= Hero ================= -->
-      <section class="hero" id="about">
+      <section class="card hero" id="about">
         <div class="hero-text">
           <h1 class="name">Haebeom Jung <span class="name-ko" lang="ko">정해범</span></h1>
           <p class="role">
-            Ph.D. student, <a href="https://gsai.snu.ac.kr/" target="_blank" rel="noopener">Interdisciplinary Program in AI</a><br />
-            Seoul National University
+            Ph.D. student · <a href="https://gsai.snu.ac.kr/" target="_blank" rel="noopener">Interdisciplinary Program in AI</a>, Seoul National
+            University
           </p>
+          <ul class="topics" aria-label="Research interests">
+            <li>Sensor calibration</li>
+            <li>Novel view synthesis</li>
+            <li>3D reconstruction</li>
+          </ul>
           <ul class="links" aria-label="Contact and profiles">
             <li>
               <a href="mailto:haebeom.jung@snu.ac.kr">
@@ -142,7 +147,7 @@
       </section>
 
       <!-- ================= About ================= -->
-      <section class="prose">
+      <section class="card prose" aria-label="About">
         <p>
           I am an Integrated Ph.D. student in the Interdisciplinary Program in Artificial Intelligence at
           <a href="https://gsai.snu.ac.kr/" target="_blank" rel="noopener">Seoul National University</a>, advised by
@@ -164,8 +169,11 @@
 
       <!-- ================= News ================= -->
       <section id="news" class="section">
-        <h2>News</h2>
-        <ul class="news">
+        <div class="section-head">
+          <h2>News</h2>
+          <span class="count">6</span>
+        </div>
+        <ul class="card news">
           <li>
             <time datetime="2026-06">Jun 2026</time>
             <p>
@@ -208,11 +216,14 @@
 
       <!-- ================= Publications ================= -->
       <section id="publications" class="section">
-        <h2>Publications</h2>
-        <p class="section-note">Hover a thumbnail to play the preview.</p>
+        <div class="section-head">
+          <h2>Publications</h2>
+          <span class="count">3</span>
+          <span class="section-note">Hover a thumbnail to play the preview</span>
+        </div>
 
         <ol class="pubs">
-          <li class="pub">
+          <li class="card pub">
             <a class="pub-media" href="https://da-eun07.github.io/rest2art/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
               <img src="assets/img/papers/rest2art.jpg" alt="" loading="lazy" />
               <video muted loop playsinline preload="none" poster="assets/img/papers/rest2art.jpg">
@@ -221,13 +232,13 @@
               </video>
             </a>
             <div class="pub-body">
+              <p class="pub-venue"><span class="venue-tag">ECCV 2026</span> European Conference on Computer Vision</p>
               <h3 class="pub-title">
                 <a href="https://da-eun07.github.io/rest2art/" target="_blank" rel="noopener"
                   >Articulated Object Reconstruction from Rest-State Observation</a
                 >
               </h3>
               <p class="pub-authors">Daeun Lee, Jaeah Lee, Woosung Kim, <span class="me">Haebeom Jung</span>, Jaesik Park</p>
-              <p class="pub-venue"><span class="venue-tag">ECCV 2026</span> European Conference on Computer Vision</p>
               <p class="pub-links">
                 <a href="https://da-eun07.github.io/rest2art/" target="_blank" rel="noopener">Project</a>
                 <a href="https://arxiv.org/abs/2607.27749" target="_blank" rel="noopener">arXiv</a>
@@ -243,7 +254,7 @@
             </div>
           </li>
 
-          <li class="pub">
+          <li class="card pub">
             <a class="pub-media" href="https://zang09.github.io/tlc-calib-site/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
               <img src="assets/img/papers/tlc-calib.jpg" alt="" loading="lazy" />
               <video muted loop playsinline preload="none" poster="assets/img/papers/tlc-calib.jpg">
@@ -252,16 +263,15 @@
               </video>
             </a>
             <div class="pub-body">
+              <p class="pub-venue">
+                <span class="venue-tag">RA-L 2026</span><span class="venue-tag">ICRA 2026</span> IEEE Robotics and Automation Letters, vol. 11, no. 4
+              </p>
               <h3 class="pub-title">
                 <a href="https://zang09.github.io/tlc-calib-site/" target="_blank" rel="noopener"
                   >Targetless LiDAR–Camera Calibration with Neural Gaussian Splatting</a
                 >
               </h3>
               <p class="pub-authors"><span class="me">Haebeom Jung</span>, Namtae Kim, Jungwoo Kim, Jaesik Park</p>
-              <p class="pub-venue">
-                <span class="venue-tag">RA-L 2026</span> IEEE Robotics and Automation Letters, vol. 11, no. 4 · presented at
-                <span class="venue-tag">ICRA 2026</span>
-              </p>
               <p class="pub-links">
                 <a href="https://zang09.github.io/tlc-calib-site/" target="_blank" rel="noopener">Project</a>
                 <a href="https://arxiv.org/abs/2504.04597" target="_blank" rel="noopener">arXiv</a>
@@ -283,7 +293,7 @@
             </div>
           </li>
 
-          <li class="pub">
+          <li class="card pub">
             <a class="pub-media" href="https://hjhyunjinkim.github.io/MH-3DGS/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
               <img src="assets/img/papers/mh-3dgs.jpg" alt="" loading="lazy" />
               <video muted loop playsinline preload="none" poster="assets/img/papers/mh-3dgs.jpg">
@@ -292,13 +302,13 @@
               </video>
             </a>
             <div class="pub-body">
+              <p class="pub-venue"><span class="venue-tag">NeurIPS 2025</span> Advances in Neural Information Processing Systems, vol. 38</p>
               <h3 class="pub-title">
                 <a href="https://hjhyunjinkim.github.io/MH-3DGS/" target="_blank" rel="noopener"
                   >Metropolis-Hastings Sampling for 3D Gaussian Reconstruction</a
                 >
               </h3>
               <p class="pub-authors">Hyunjin Kim, <span class="me">Haebeom Jung</span>, Jaesik Park</p>
-              <p class="pub-venue"><span class="venue-tag">NeurIPS 2025</span> Advances in Neural Information Processing Systems, vol. 38</p>
               <p class="pub-links">
                 <a href="https://hjhyunjinkim.github.io/MH-3DGS/" target="_blank" rel="noopener">Project</a>
                 <a href="https://arxiv.org/abs/2506.12945" target="_blank" rel="noopener">arXiv</a>
@@ -321,30 +331,33 @@
 
       <!-- ================= Honors ================= -->
       <section id="honors" class="section">
-        <h2>Honors &amp; Awards</h2>
+        <div class="section-head">
+          <h2>Honors &amp; Awards</h2>
+          <span class="count">12</span>
+        </div>
         <ul class="honors">
-          <li>
+          <li class="card">
             <time>2026</time>
             <div>
               <p class="honor-title">Jeonghun Foundation Ph.D. Scholarship</p>
               <p class="honor-meta">Jeonghun Foundation · Mar 2026 – Aug 2026</p>
             </div>
           </li>
-          <li>
+          <li class="card">
             <time>2024</time>
             <div>
               <p class="honor-title">M.S. Research Funding</p>
               <p class="honor-meta">Korean Ministry of Education · Sep 2024 – Aug 2025 · one of 750 master's students selected nationwide</p>
             </div>
           </li>
-          <li>
+          <li class="card">
             <time>2023</time>
             <div>
               <p class="honor-title">SNU AI Fellowship (M.S. Program)</p>
               <p class="honor-meta">Seoul National University · Sep 2023 – Aug 2025 · four-semester scholarship</p>
             </div>
           </li>
-          <li>
+          <li class="card">
             <time>2019</time>
             <div>
               <p class="honor-title">Outstanding Mentor, Samsung Junior Software Creation Contest</p>
@@ -354,7 +367,7 @@
               </p>
             </div>
           </li>
-          <li>
+          <li class="card">
             <time>2018</time>
             <div>
               <p class="honor-title">2nd Place, IRC – Intelligent Humanoid Robot Sports</p>
@@ -364,7 +377,7 @@
               </p>
             </div>
           </li>
-          <li>
+          <li class="card">
             <time>2018</time>
             <div>
               <p class="honor-title">3rd Place, R-BIZ Challenge – TurtleBot3 Autorace</p>
@@ -375,7 +388,7 @@
               </p>
             </div>
           </li>
-          <li>
+          <li class="card">
             <time>2018</time>
             <div>
               <p class="honor-title">3rd Place, RoboCup 2018 Montréal – Kidsize Humanoid Technical Challenge</p>
@@ -386,7 +399,7 @@
               </p>
             </div>
           </li>
-          <li>
+          <li class="card">
             <time>2017</time>
             <div>
               <p class="honor-title">Achievement Award</p>
@@ -396,7 +409,7 @@
               </p>
             </div>
           </li>
-          <li>
+          <li class="card">
             <time>2017</time>
             <div>
               <p class="honor-title">Winner, IRC – Intelligent Humanoid Robot Sports</p>
@@ -407,7 +420,7 @@
               </p>
             </div>
           </li>
-          <li>
+          <li class="card">
             <time>2017</time>
             <div>
               <p class="honor-title">4th Place, RoboCup Iran Open – Kidsize Humanoid Soccer</p>
@@ -417,7 +430,7 @@
               </p>
             </div>
           </li>
-          <li>
+          <li class="card">
             <time>2017</time>
             <div>
               <p class="honor-title">Winner, RoboCup Korea – Kidsize Humanoid Soccer</p>
@@ -427,7 +440,7 @@
               </p>
             </div>
           </li>
-          <li>
+          <li class="card">
             <time>2016</time>
             <div>
               <p class="honor-title">3rd Award, Future-Robot Idea Presentation</p>
