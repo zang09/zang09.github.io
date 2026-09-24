@@ -14,7 +14,7 @@
       "url": "https://jaesik.info/"
     }
   ],
-  "topics": ["Robotics", "3D reconstruction"],
+  "topics": ["Robot manipulation", "SLAM", "Sensor calibration"],
   "links": [
     {
       "label": "Email",
@@ -42,7 +42,7 @@
       "icon": "<svg viewBox=\"0 0 24 24\" aria-hidden=\"true\"><path d=\"M6 2h8l5 5v15H6z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linejoin=\"round\" /><path d=\"M14 2v5h5M9 13h6M9 17h6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" /></svg>"
     }
   ],
-  "description": "Haebeom Jung is a Ph.D. student at Seoul National University working on robotics and 3D reconstruction.",
+  "description": "Haebeom Jung is a Ph.D. student at Seoul National University working on robot manipulation, SLAM, and sensor calibration.",
   "home_news": 4,
   "home_timeline": 3,
   "hide_gpa": true,
