@@ -22,6 +22,7 @@ ad-hoc local compile never overwrites the deployed PDF by accident.
 """
 from __future__ import annotations
 
+import hashlib
 import html
 import json
 import re
@@ -747,7 +748,23 @@ class Site:
         sm += "".join(f"  <url><loc>{SITE_URL}{u}</loc><lastmod>{today}</lastmod></url>\n" for u in urls) + "</urlset>\n"
         self.write("sitemap.xml", sm)
 
+    # Cache busting: append a content hash to local asset URLs so browsers pick up
+    # new CSS/JS/images immediately after a deploy.
+    _VERSIONED = ("assets/css/style.css", "assets/js/main.js", "assets/img/profile.jpg")
+
+    def _asset_hash(self, rel: str) -> str:
+        p = ROOT / rel
+        return hashlib.md5(p.read_bytes()).hexdigest()[:8] if p.exists() else "0"
+
+    def bust(self, content: str) -> str:
+        for rel in self._VERSIONED:
+            v = self._asset_hash(rel)
+            content = re.sub(rf'((?:\.\./)?{re.escape(rel)})(?=["\')])', rf"\1?v={v}", content)
+        return content
+
     def write(self, rel: str, content: str) -> None:
+        if rel.endswith(".html"):
+            content = self.bust(content)
         p = ROOT / rel
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_text(content.rstrip() + "\n", encoding="utf-8")
