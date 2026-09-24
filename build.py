@@ -13,8 +13,12 @@ Outputs (committed, and regenerated in CI before deploy)
 
 Usage
   python3 build.py            # clone/update cv-src, build pages, copy PDF if present
-  python3 build.py --pdf      # also compile the PDF with latexmk/xelatex
+  python3 build.py --pdf      # also compile the PDF with latexmk/xelatex and copy it into assets/pdf/
   python3 build.py --no-fetch # do not touch cv-src (CI checks it out itself)
+  python3 build.py --ci       # copy cv-src/cv.pdf into assets/pdf/ (used by the workflow)
+
+The committed assets/pdf/CV_HaebeomJung.pdf is only replaced with --pdf or --ci, so an
+ad-hoc local compile never overwrites the deployed PDF by accident.
 """
 from __future__ import annotations
 
@@ -753,7 +757,8 @@ def main(argv: list[str]) -> None:
     ensure_cv_source(fetch)
     if "--pdf" in argv:
         build_pdf()
-    copy_pdf()
+    if "--pdf" in argv or "--ci" in argv:
+        copy_pdf()
     Site(fetch).build()
 
 

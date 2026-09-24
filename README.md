@@ -38,15 +38,19 @@ Commented-out entries in the `.tex` files (for example the POSTECH and UNIST int
 Then regenerate:
 
 ```bash
-python3 build.py          # clones/updates cv-src/, regenerates pages, copies cv-src/cv.pdf if present
-python3 build.py --pdf    # also compiles the PDF locally (needs TeX Live with the FontAwesome font available)
+python3 build.py          # clones/updates cv-src/ and regenerates the pages (does not touch the PDF)
+python3 build.py --pdf    # also compiles the PDF locally and copies it into assets/pdf/
 ```
 
 Open `index.html` directly in a browser or serve with `python3 -m http.server 8000`. Generated pages are committed so the repo works standalone; CI regenerates them anyway.
 
+## PDF and TeX Live versions
+
+Awesome-CV's row spacing changed with newer TeX Live releases: on TeX Live 2024+ entries with bullet descriptions overlap the next heading. Overleaf renders this project with TeX Live 2021, so CI pins the same version and the committed PDF should come from CI or Overleaf. A local `--pdf` build on a current TeX Live will show the overlap; either ignore it or update `awesome-cv.cls` in the CV repo to upstream's `\cventry` (which appends `\\` after the description).
+
 ## Deploy
 
-`.github/workflows/deploy.yml` runs on every push to `main`, daily at 03:00 UTC, on manual dispatch, and on a `cv-updated` repository dispatch. It checks out the CV repo, compiles `cv.pdf` with XeLaTeX, runs `build.py`, checks Prettier formatting of the hand-written sources, and publishes the tree to `gh-pages`. `CNAME` keeps the custom domain `www.haebeom.com`.
+`.github/workflows/deploy.yml` runs on every push to `main`, daily at 03:00 UTC, on manual dispatch, and on a `cv-updated` repository dispatch. It checks out the CV repo, compiles `cv.pdf` with XeLaTeX on TeX Live 2021 (the same release Overleaf uses for this project, so spacing matches the Overleaf preview), runs `build.py`, checks Prettier formatting of the hand-written sources, and publishes the tree to `gh-pages`. `CNAME` keeps the custom domain `www.haebeom.com`.
 
 To make Overleaf pushes redeploy immediately, copy `.github/cv-repo/notify-site.yml` into the CV repository as `.github/workflows/notify-site.yml` and add a `SITE_DISPATCH_TOKEN` secret there (fine-grained PAT with Contents read/write on this repo). Without it, the daily schedule still picks up changes.
 

@@ -35,6 +35,9 @@ jobs:
           root_file: cv.tex
           working_directory: cv-src
           latexmk_use_xelatex: true
+          # Match Overleaf's TeX Live release so the PDF looks identical to the
+          # Overleaf preview (newer releases change Awesome-CV's row spacing).
+          texlive_version: 2021
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -42,7 +45,7 @@ jobs:
           python-version: "3.12"
 
       - name: Generate pages from CV and data
-        run: python3 build.py --no-fetch
+        run: python3 build.py --no-fetch --ci
 
       - name: Check formatting of hand-written sources
         run: npx --yes prettier@3 . --check
