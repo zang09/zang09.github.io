@@ -245,7 +245,7 @@ button {
   padding: 0 6px 14px;
 }
 .section-head h2 {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 650;
 }
 .section-note {
@@ -279,7 +279,7 @@ button {
   padding: 12px 6px 20px;
 }
 .page-head h1 {
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 750;
   letter-spacing: -0.025em;
 }
@@ -336,20 +336,20 @@ button {
 }
 .name {
   font-family: var(--serif);
-  font-size: 48px;
+  font-size: 40px;
   font-weight: 600;
   letter-spacing: -0.01em;
   line-height: 1.1;
 }
 .role {
-  margin-top: 10px;
-  font-size: 17px;
+  margin-top: 8px;
+  font-size: 16px;
   font-weight: 650;
   color: var(--fg);
 }
 .affil {
   margin-top: 2px;
-  font-size: 16.5px;
+  font-size: 15.5px;
   line-height: 1.5;
 }
 .affil a {
@@ -357,7 +357,7 @@ button {
 }
 .email {
   margin-top: 4px;
-  font-size: 15px;
+  font-size: 14.5px;
   color: var(--fg-muted);
 }
 .email a {
@@ -370,7 +370,7 @@ button {
   margin-top: 18px;
 }
 .affiliations h2 {
-  font-size: 14.5px;
+  font-size: 14px;
   font-weight: 650;
   color: var(--fg);
 }
@@ -380,7 +380,7 @@ button {
   gap: 2px;
 }
 .affiliations li {
-  font-size: 15px;
+  font-size: 14.5px;
 }
 .affiliations li::before {
   content: "•";
@@ -416,7 +416,7 @@ button {
   border: 1px solid var(--line-strong);
   border-radius: var(--radius-sm);
   color: var(--fg);
-  font-size: 13.5px;
+  font-size: 13px;
   font-weight: 550;
   background: var(--card);
   transition:
@@ -611,7 +611,7 @@ button {
   letter-spacing: 0.01em;
 }
 .pub-title {
-  font-size: 18px;
+  font-size: 16.5px;
   font-weight: 650;
   letter-spacing: -0.015em;
 }
@@ -623,8 +623,8 @@ button {
   text-decoration: none;
 }
 .pub-authors {
-  margin-top: 6px;
-  font-size: 14.5px;
+  margin-top: 5px;
+  font-size: 14px;
   color: var(--fg-muted);
 }
 .me {
@@ -761,7 +761,7 @@ button {
   flex-wrap: wrap;
 }
 .tl-place {
-  font-size: 15px;
+  font-size: 14.5px;
   font-weight: 650;
 }
 .tl-time {
@@ -815,7 +815,7 @@ button {
   margin-top: 1px;
 }
 .honor-title {
-  font-size: 14.5px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: -0.005em;
 }
@@ -923,7 +923,7 @@ button {
   min-width: 0;
 }
 .exp-title {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 650;
 }
 .exp-org {
@@ -1108,7 +1108,7 @@ button {
     border-radius: 18px;
   }
   .name {
-    font-size: 36px;
+    font-size: 32px;
   }
   .role,
   .affil {
