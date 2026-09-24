@@ -592,6 +592,28 @@ button {
 .pub-media.playing video {
   opacity: 1;
 }
+.pub-media.tap-to-play::after {
+  content: "";
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z' fill='%23fff'/%3E%3C/svg%3E")
+      center / 16px no-repeat,
+    rgba(0, 0, 0, 0.55);
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+.pub-media.tap-to-play.playing::after {
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 5h4v14H7zm6 0h4v14h-4z' fill='%23fff'/%3E%3C/svg%3E")
+      center / 16px no-repeat,
+    rgba(0, 0, 0, 0.55);
+  opacity: 0.6;
+}
 .pub-body {
   padding: 2px 4px 2px 0;
   min-width: 0;

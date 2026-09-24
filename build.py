@@ -269,7 +269,7 @@ def toggle(cls: str, controls: str, closed: str, opened: str, toggle_class: str 
 def logo_tile(org: dict, name: str, cls: str, root: str) -> str:
     if org.get("logo"):
         flush = " flush" if org.get("flush") else ""
-        return f'<div class="{cls}{flush}"><img src="{root}assets/img/logos/{org["logo"]}" alt="{html.escape(name)} logo" loading="lazy" /></div>'
+        return f'<div class="{cls}{flush}"><img src="{root}assets/img/logos/{org["logo"]}" alt="{html.escape(name)} logo" /></div>'
     initials = "".join(w[0] for w in re.findall(r"[A-Za-z]+", name))[:3].upper() or "?"
     return f'<div class="{cls} mono" aria-hidden="true">{initials}</div>'
 
