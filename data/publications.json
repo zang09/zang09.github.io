@@ -1,5 +1,20 @@
 [
   {
+    "match": "Beyond the Current Scene",
+    "slug": "beyondcse",
+    "tags": ["arXiv 2026"],
+    "venue_full": "arXiv preprint",
+    "project": "https://www.haebeom.com/BeyondCSe/",
+    "arxiv": "https://arxiv.org/abs/2609.39375",
+    "code": "https://github.com/SNU-VGILab/BeyondCSe",
+    "doi": null,
+    "bibtex": "@article{lee2026beyondcse,\n  title   = {Beyond the Current Scene: Event-Referential Grasping with Active View Selection},\n  author  = {Lee, Hyunjoon and Jung, Haebeom and Cha, Eunsung and Lee, Daeun and Wang, Yu-Chiang Frank and Choe, Jaesung and Park, Jaesik},\n  journal = {arXiv preprint arXiv:2609.39375},\n  year    = {2026}\n}",
+    "teaser": {
+      "light": "beyondcse-method-light.webp",
+      "dark": "beyondcse-method-dark.webp"
+    }
+  },
+  {
     "match": "Articulated Object Reconstruction from",
     "slug": "rest2art",
     "preview": "rest2art",
