@@ -585,6 +585,27 @@ button {
   height: 100%;
   object-fit: cover;
 }
+/* Match both the saved theme and the system default. */
+.pub-teaser img {
+  object-fit: contain;
+}
+.pub-teaser .teaser-dark {
+  display: none;
+}
+:root[data-theme="dark"] .pub-teaser .teaser-light {
+  display: none;
+}
+:root[data-theme="dark"] .pub-teaser .teaser-dark {
+  display: block;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .pub-teaser .teaser-light {
+    display: none;
+  }
+  :root:not([data-theme="light"]) .pub-teaser .teaser-dark {
+    display: block;
+  }
+}
 .pub-media video {
   opacity: 0;
   transition: opacity 0.2s;

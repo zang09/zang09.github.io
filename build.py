@@ -420,7 +420,15 @@ class Site:
             slug = m.get("slug", f"pub{i}")
             prev = m.get("preview")
             media = ""
-            if prev:
+            teaser = m.get("teaser")
+            if teaser:
+                url = m.get("project") or m.get("arxiv") or "#"
+                media = f'''            <a class="pub-media pub-teaser" href="{url}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+              <img class="teaser-light" src="{root}assets/img/papers/{teaser['light']}" alt="" loading="lazy" />
+              <img class="teaser-dark" src="{root}assets/img/papers/{teaser['dark']}" alt="" loading="lazy" />
+            </a>
+'''
+            elif prev:
                 base = f"{root}assets/img/papers/{prev}"
                 url = m.get("project") or m.get("arxiv") or "#"
                 media = f'''            <a class="pub-media" href="{url}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
