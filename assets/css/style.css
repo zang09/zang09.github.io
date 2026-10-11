@@ -12,6 +12,7 @@
   --line: #e5e7eb;
   --line-strong: #d6d9df;
   --accent: #2563eb;
+  --new: #dc2626;
   --accent-ink: #1d4ed8;
   --accent-soft: #e8efff;
   --chip: #f1f3f6;
@@ -37,6 +38,7 @@
     --line: #23272f;
     --line-strong: #2e333c;
     --accent: #7aa7ff;
+    --new: #f87171;
     --accent-ink: #9dbcff;
     --accent-soft: #172341;
     --chip: #1d2128;
@@ -55,6 +57,7 @@
   --line: #23272f;
   --line-strong: #2e333c;
   --accent: #7aa7ff;
+  --new: #f87171;
   --accent-ink: #9dbcff;
   --accent-soft: #172341;
   --chip: #1d2128;
@@ -535,6 +538,9 @@ button {
 .news p strong {
   color: var(--fg);
   font-weight: 600;
+}
+.news-new {
+  color: var(--new);
 }
 .news p a {
   color: var(--fg);

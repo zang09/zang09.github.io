@@ -404,8 +404,10 @@ class Site:
     # news -----------------------------------------------------------------
     def news_list(self, items: list[dict], root: str) -> str:
         lis = []
-        for n in items:
+        for i, n in enumerate(items):
             body = n["html"].replace('href="/', f'href="{root}')
+            if i == 0:  # newest item is always flagged
+                body = f'<span class="news-new">NEW!</span> {body}'
             lis.append(f'''          <li>
             <time datetime="{n["date"]}">{n["label"]}</time>
             <p>{body}</p>
