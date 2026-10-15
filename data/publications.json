@@ -1,5 +1,15 @@
 [
   {
+    "match": "Distractor-Aware COLMAP-Free 3D Gaussian Splatting",
+    "slug": "distractor-aware-colmap-free",
+    "preview": "distractor-aware-colmap-free",
+    "tags": ["WACV 2027"],
+    "venue_full": "IEEE/CVF Winter Conference on Applications of Computer Vision",
+    "cv_venue": "WACV 2027",
+    "cv_date": "2027",
+    "bibtex": "@inproceedings{kim2027distractor,\n  title     = {Distractor-Aware COLMAP-Free 3D Gaussian Splatting},\n  author    = {Kim, Namtae and Jung, Haebeom and Park, Jaesik},\n  booktitle = {IEEE/CVF Winter Conference on Applications of Computer Vision (WACV)},\n  year      = {2027}\n}"
+  },
+  {
     "match": "Beyond the Current Scene",
     "slug": "beyondcse",
     "tags": ["arXiv 2026"],

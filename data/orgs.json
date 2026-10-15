@@ -1,11 +1,17 @@
 {
+  "NVIDIA": {
+    "logo": "nvidia.png",
+    "url": "https://www.nvidia.com/"
+  },
   "Kakao Mobility": {
+    "cv_dates": "Jul. 2021 - Apr. 2022",
     "logo": "kakao-mobility.png",
     "flush": true,
     "url": "https://www.kakaomobility.com/",
     "summary": "Self-driving data collection · visual SLAM and localization"
   },
   "Stryx": {
+    "cv_dates": "Dec. 2019 - Jul. 2021",
     "logo": "stryx.png",
     "summary": "MMS sensor capture · UGV autonomous driving (SLAM, localization, sensor fusion, planning)"
   },
