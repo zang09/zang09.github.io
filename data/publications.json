@@ -20,8 +20,8 @@
     "doi": null,
     "bibtex": "@article{lee2026beyondcse,\n  title   = {Beyond the Current Scene: Event-Referential Grasping with Active View Selection},\n  author  = {Lee, Hyunjoon and Jung, Haebeom and Cha, Eunsung and Lee, Daeun and Wang, Yu-Chiang Frank and Choe, Jaesung and Park, Jaesik},\n  journal = {arXiv preprint arXiv:2609.39375},\n  year    = {2026}\n}",
     "teaser": {
-      "light": "beyondcse-method-light.webp",
-      "dark": "beyondcse-method-dark.webp"
+      "light": "beyondcse-light.png",
+      "dark": "beyondcse-dark.png"
     }
   },
   {

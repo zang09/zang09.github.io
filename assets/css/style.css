@@ -603,6 +603,9 @@ button {
   object-fit: contain;
 }
 /* Match both the saved theme and the system default. */
+.pub-teaser {
+  background: #fff;
+}
 .pub-teaser img {
   object-fit: contain;
 }
@@ -612,10 +615,16 @@ button {
 :root[data-theme="dark"] .pub-teaser .teaser-light {
   display: none;
 }
+:root[data-theme="dark"] .pub-teaser {
+  background: transparent;
+}
 :root[data-theme="dark"] .pub-teaser .teaser-dark {
   display: block;
 }
 @media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .pub-teaser {
+    background: transparent;
+  }
   :root:not([data-theme="light"]) .pub-teaser .teaser-light {
     display: none;
   }

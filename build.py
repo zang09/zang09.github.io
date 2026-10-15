@@ -865,6 +865,8 @@ class Site:
         "assets/img/papers/distractor-aware-colmap-free.jpg",
         "assets/img/papers/distractor-aware-colmap-free.mp4",
         "assets/img/papers/distractor-aware-colmap-free.webm",
+        "assets/img/papers/beyondcse-light.png",
+        "assets/img/papers/beyondcse-dark.png",
     )
 
     def _asset_hash(self, rel: str) -> str:
