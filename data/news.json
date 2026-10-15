@@ -1,18 +1,23 @@
 [
   {
+    "date": "2026-10",
+    "label": "Oct 2026",
+    "html": "Our paper, <strong>Distractor-Aware COLMAP-Free 3D Gaussian Splatting</strong>, has been accepted to <strong>WACV 2027</strong>."
+  },
+  {
     "date": "2026-09",
     "label": "Sep 2026",
-    "html": "<a href=\"https://www.haebeom.com/BeyondCSe/\" target=\"_blank\" rel=\"noopener\">BeyondCSe</a>, our work on event-referential grasping with active view selection, is now on <a href=\"https://arxiv.org/abs/2609.39375\" target=\"_blank\" rel=\"noopener\"><strong>arXiv</strong></a>."
+    "html": "<a href=\"https://www.haebeom.com/BeyondCSe/\" target=\"_blank\" rel=\"noopener\">BeyondCSe</a>, our work on event-referential grasping with active view selection, is now available on <a href=\"https://arxiv.org/abs/2609.39375\" target=\"_blank\" rel=\"noopener\"><strong>arXiv</strong></a>."
   },
   {
     "date": "2026-06",
     "label": "Jun 2026",
-    "html": "<a href=\"https://da-eun07.github.io/rest2art/\" target=\"_blank\" rel=\"noopener\">Rest2Art</a>, our work on articulated object reconstruction, is accepted to <strong>ECCV 2026</strong>."
+    "html": "<a href=\"https://da-eun07.github.io/rest2art/\" target=\"_blank\" rel=\"noopener\">Rest2Art</a>, our work on articulated object reconstruction, has been accepted to <strong>ECCV 2026</strong>."
   },
   {
     "date": "2026-03",
     "label": "Mar 2026",
-    "html": "Selected as a Jeongheon Foundation Scholar for Ph.D. studies."
+    "html": "I was selected as a <strong>Jeongheon Foundation Scholar</strong> for my Ph.D. studies."
   },
   {
     "date": "2026-02",
@@ -22,16 +27,16 @@
   {
     "date": "2026-01",
     "label": "Jan 2026",
-    "html": "Our paper on <a href=\"https://zang09.github.io/tlc-calib-site/\" target=\"_blank\" rel=\"noopener\">targetless LiDAR–camera calibration</a> is accepted to <strong>IEEE RA-L</strong>."
+    "html": "Our paper on <a href=\"https://zang09.github.io/tlc-calib-site/\" target=\"_blank\" rel=\"noopener\">targetless LiDAR–camera calibration</a> has been accepted for publication in <strong>IEEE RA-L</strong>."
   },
   {
     "date": "2025-09",
     "label": "Sep 2025",
-    "html": "<a href=\"https://hjhyunjinkim.github.io/MH-3DGS/\" target=\"_blank\" rel=\"noopener\">MH-3DGS</a>, our work on 3DGS densification sampling, is accepted to <strong>NeurIPS 2025</strong>."
+    "html": "<a href=\"https://hjhyunjinkim.github.io/MH-3DGS/\" target=\"_blank\" rel=\"noopener\">MH-3DGS</a>, our work on 3DGS densification sampling, has been accepted to <strong>NeurIPS 2025</strong>."
   },
   {
     "date": "2024-09",
     "label": "Sep 2024",
-    "html": "Received M.S. research funding from the Korean Ministry of Education, awarded to 750 master's students nationwide."
+    "html": "I received research funding for my master's studies through a <strong>Korean Ministry of Education</strong> program supporting 750 master's students nationwide."
   }
 ]

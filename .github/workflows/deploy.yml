@@ -32,6 +32,14 @@ jobs:
           # CV_REPO_TOKEN: fine-grained PAT with "Contents: read" on zang09/CV_HaebeomJung.
           token: ${{ secrets.CV_REPO_TOKEN }}
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Add research collaborations to CV source
+        run: python3 build.py --no-fetch --prepare-cv
+
       - name: Compile CV PDF
         uses: xu-cheng/latex-action@v3
         with:
@@ -41,11 +49,6 @@ jobs:
           # Match Overleaf's TeX Live release so the PDF looks identical to the
           # Overleaf preview (newer releases change Awesome-CV's row spacing).
           texlive_version: 2021
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
 
       - name: Generate pages from CV and data
         run: python3 build.py --no-fetch --ci

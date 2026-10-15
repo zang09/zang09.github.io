@@ -13,16 +13,17 @@ templates/base.html                            experience/, honors/, vitae/, sit
                                             ──▶ assets/pdf/CV_HaebeomJung.pdf (compiled in CI)
 ```
 
-| Source                      | Owns                                                                                                              |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| `cv-src/cv/*.tex` (CV repo) | Education, experience, publications list, awards, patents, funding, service, skills, ongoing research             |
-| `data/site.json`            | Hero: name, role, affiliation links, email, topics, social buttons, JSON-LD                                       |
-| `data/news.json`            | News items (not in the CV)                                                                                        |
-| `data/publications.json`    | Web extras per paper, matched by title substring: project/arXiv/code/DOI links, preview media, venue tags, BibTeX |
-| `data/orgs.json`            | Per-organization logo, URL, one-line summary for the home timeline, note for Experience cards                     |
-| `data/honors.json`          | Web extras per award, matched by substring: display title, awarder, summary, news link, `selected`                |
-| `content/bio_*.html`        | Short and full bio paragraphs                                                                                     |
-| `templates/base.html`       | Page shell: head, floating nav, footer                                                                            |
+| Source                                | Owns                                                                                                               |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `cv-src/cv/*.tex` (CV repo)           | Education, experience, publications list, awards, patents, funding, service, skills, ongoing research              |
+| `data/site.json`                      | Hero: name, role, affiliation links, email, topics, social buttons, JSON-LD                                        |
+| `data/news.json`                      | News items (not in the CV)                                                                                         |
+| `data/publications.json`              | Web extras per paper, matched by title substring: project/arXiv/code/DOI links, preview media, venue tags, BibTeX  |
+| `data/orgs.json`                      | Per-organization logo, URL, one-line summary for the home timeline, note for Experience cards                      |
+| `content/research_collaborations.tex` | Research collaborations shared by Experience, Vitae, and the PDF CV; included in the downloaded CV before building |
+| `data/honors.json`                    | Web extras per award, matched by substring: display title, awarder, summary, news link, `selected`                 |
+| `content/bio_*.html`                  | Short and full bio paragraphs                                                                                      |
+| `templates/base.html`                 | Page shell: head, floating nav, footer                                                                             |
 
 Commented-out entries in the `.tex` files (for example the POSTECH and UNIST internships) are ignored, so they appear neither in the PDF nor on the site. GPA bullets are dropped on the web (`hide_gpa` in `site.json`).
 
@@ -30,8 +31,11 @@ Commented-out entries in the `.tex` files (for example the POSTECH and UNIST int
 
 - **CV content**: edit in Overleaf. Pushing to GitHub triggers a rebuild (see _Deploy_).
 - **News**: add an object at the top of `data/news.json`. The home page shows the first 4.
+- **Research collaborations**: edit `content/research_collaborations.tex`; add organization logos and URLs in `data/orgs.json`. The build includes this section before Professional Experience in the downloaded CV source, and CI does this before compiling the PDF.
 - **New paper**: add it to `cv/publications.tex` in the CV, then add a matching object to `data/publications.json` and drop `name.jpg`, `name.mp4`, `name.webm` into `assets/img/papers/`. Papers whose venue contains "review" are listed on the Vitae page only.
+- **Paper acceptance**: set `cv_venue` and `cv_date` in the matching `data/publications.json` entry to update the downloaded LaTeX CV before PDF compilation and page generation. Update the venue tags, BibTeX, and news too. A paper without a figure is displayed as a text card until preview media is provided.
 - **New employer/school**: add it to the CV, then add its logo to `assets/img/logos/` and an entry to `data/orgs.json` (`flush: true` for tiles that already fill the square).
+- **Employment date corrections**: set `cv_dates` in the organization's `data/orgs.json` entry; the build applies it to the downloaded LaTeX source before generating web pages and the PDF.
 - **Honors**: add to `cv/awards.tex`; optionally add web extras in `data/honors.json`. `selected: true` shows it on the home page.
 - **Design**: `assets/css/style.css`, `assets/js/main.js`, `templates/base.html`.
 
@@ -46,7 +50,7 @@ Open `index.html` directly in a browser or serve with `python3 -m http.server 80
 
 ## PDF and TeX Live versions
 
-Awesome-CV's row spacing changed with newer TeX Live releases: on TeX Live 2024+ entries with bullet descriptions overlap the next heading. Overleaf renders this project with TeX Live 2021, so CI pins the same version and the committed PDF should come from CI or Overleaf. A local `--pdf` build on a current TeX Live will show the overlap; either ignore it or update `awesome-cv.cls` in the CV repo to upstream's `\cventry` (which appends `\\` after the description).
+Awesome-CV's row spacing changed with newer TeX Live releases: on TeX Live 2024+ entries with bullet descriptions overlap the next heading. Overleaf and CI use TeX Live 2021. Local `--pdf` builds also require TeX Live 2021: the build checks `~/texlive/2021/bin/universal-darwin`, standard `/usr/local/texlive/2021` locations, and then `PATH`. It refuses other versions and forces recompilation so a PDF previously built with a newer version is replaced.
 
 ## Deploy
 

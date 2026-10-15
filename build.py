@@ -15,6 +15,7 @@ Usage
   python3 build.py            # clone/update cv-src, build pages, copy PDF if present
   python3 build.py --pdf      # also compile the PDF with latexmk/xelatex and copy it into assets/pdf/
   python3 build.py --no-fetch # do not touch cv-src (CI checks it out itself)
+  python3 build.py --no-fetch --prepare-cv # include site collaboration section before CI compiles the PDF
   python3 build.py --ci       # copy cv-src/cv.pdf into assets/pdf/ (used by the workflow)
 
 The committed assets/pdf/CV_HaebeomJung.pdf is only replaced with --pdf or --ci, so an
@@ -25,6 +26,7 @@ from __future__ import annotations
 import hashlib
 import html
 import json
+import os
 import re
 import shutil
 import subprocess
@@ -53,15 +55,86 @@ def ensure_cv_source(fetch: bool) -> None:
 
 
 def build_pdf() -> None:
-    if shutil.which("latexmk") is None:
-        sys.exit("latexmk not found; install TeX Live or drop --pdf.")
-    print("Compiling cv.pdf with xelatex …")
+    candidates = [
+        Path.home() / "texlive/2021/bin/universal-darwin",
+        Path("/usr/local/texlive/2021/bin/universal-darwin"),
+        Path("/usr/local/texlive/2021/bin/x86_64-linux"),
+    ]
+    system_xelatex = shutil.which("xelatex")
+    if system_xelatex:
+        candidates.append(Path(system_xelatex).parent)
+    for directory in candidates:
+        engine = directory / "xelatex"
+        if not engine.is_file() or not (directory / "latexmk").is_file():
+            continue
+        version = subprocess.run([str(engine), "--version"], capture_output=True, text=True, check=True)
+        if "TeX Live 2021" in version.stdout:
+            break
+    else:
+        sys.exit("TeX Live 2021 is required for --pdf. Install it or put its bin directory on PATH.")
+    env = dict(os.environ, PATH=str(directory) + os.pathsep + os.environ.get("PATH", ""))
+    print(f"Compiling cv.pdf with TeX Live 2021 ({directory}) …", flush=True)
     subprocess.run(
-        ["latexmk", "-xelatex", "-interaction=nonstopmode", "-halt-on-error", "cv.tex"],
+        [str(directory / "latexmk"), "-g", "-xelatex", "-interaction=nonstopmode", "-halt-on-error", "cv.tex"],
         cwd=CV_DIR,
+        env=env,
         check=True,
         stdout=subprocess.DEVNULL,
     )
+
+
+def prepare_cv() -> None:
+    """Include site-owned research collaborations in the downloaded CV source."""
+    shutil.copyfile(ROOT / "content/research_collaborations.tex", CV_DIR / "cv/research_collaborations.tex")
+    path = CV_DIR / "cv.tex"
+    source = path.read_text(encoding="utf-8")
+    include = r"\input{cv/research_collaborations}"
+    source = re.sub(r"(?m)^[ \t]*" + re.escape(include) + r"[ \t]*\n?", "", source)
+    anchor = r"\input{cv/working_experience}"
+    if anchor not in strip_comments(source):
+        raise ValueError("CV source is missing the Professional Experience section")
+    updated = source.replace(anchor, include + "\n" + anchor, 1)
+    if updated != path.read_text(encoding="utf-8"):
+        path.write_text(updated, encoding="utf-8")
+    # Keep site-owned corrections when CI refreshes the CV clone.
+    apply_cv_overrides("cv/publications.tex", load_json("publications.json"), ((2, "cv_venue"), (3, "cv_date")))
+    organizations = [dict(value, match=name) for name, value in load_json("orgs.json").items()]
+    apply_cv_overrides("cv/working_experience.tex", organizations, ((3, "cv_dates"),))
+
+
+def apply_cv_overrides(relative_path: str, metadata: list[dict], fields: tuple) -> None:
+    path = CV_DIR / relative_path
+    publications = path.read_text(encoding="utf-8")
+    edits = []
+    for match in re.finditer(r"\\cventry\b", publications):
+        if "%" in publications[publications.rfind("\n", 0, match.start()) + 1:match.start()]:
+            continue
+        groups, spans, pos = [], [], match.end()
+        for _ in range(5):
+            while pos < len(publications) and publications[pos].isspace():
+                pos += 1
+            # Awesome-CV entries commonly have a comment after each argument.
+            while pos < len(publications) and publications[pos] == "%":
+                pos = publications.index("\n", pos) + 1
+                while pos < len(publications) and publications[pos].isspace():
+                    pos += 1
+            start = pos
+            group, pos = read_group(publications, pos)
+            groups.append(group)
+            spans.append((start, pos))
+        meta = find_meta(metadata, tex_to_text(groups[1]))
+        authors = groups[0].replace("(* equal contribution)", "(*Equal contribution)")
+        if relative_path == "cv/publications.tex":
+            authors = re.sub(r"(?<!\{)\*", lambda _: r"\textsuperscript{*}", authors)
+        if authors != groups[0]:
+            edits.append((*spans[0], "{" + authors + "}"))
+        for index, field in fields:
+            if field in meta:
+                edits.append((*spans[index], "{" + meta[field] + "}"))
+    for start, end, replacement in sorted(edits, reverse=True):
+        publications = publications[:start] + replacement + publications[end:]
+    if publications != path.read_text(encoding="utf-8"):
+        path.write_text(publications, encoding="utf-8")
 
 
 def copy_pdf() -> None:
@@ -180,6 +253,7 @@ def tex_to_html(s: str) -> str:
     # formatting
     for _ in range(3):
         s = re.sub(r"\\textbf\{((?:[^{}]|\{[^{}]*\})*)\}", r"<strong>\1</strong>", s)
+        s = re.sub(r"\\textsuperscript\{([^{}]*)\}", r"<sup>\1</sup>", s)
         s = re.sub(r"\\textit\{((?:[^{}]|\{[^{}]*\})*)\}", r"<em>\1</em>", s)
         s = re.sub(r"\\(?:small|scriptsize|footnotesize|normalsize|large)\{((?:[^{}]|\{[^{}]*\})*)\}", r"\1", s)
         s = re.sub(r"\\phantom\{[^{}]*\}", "", s)
@@ -329,6 +403,16 @@ class Site:
                             dates=nice_dates(dates), key=start_key(dates), items=items))
         return out
 
+    def collaboration_entries(self) -> list[dict]:
+        out = []
+        for e in self.entries("cv/research_collaborations"):
+            role, org, loc, dates, body = e["args"]
+            items = [tex_to_html(i) for i in parse_items(body)]
+            out.append(dict(kind="collaboration", role=tex_to_text(role), org=tex_to_text(org),
+                            loc=tex_to_text(loc), dates=nice_dates(dates), key=start_key(dates),
+                            note=items[0] if items else "", items=items[1:]))
+        return out
+
     def publications(self) -> list[dict]:
         out = []
         for e in self.entries("cv/publications"):
@@ -432,8 +516,15 @@ class Site:
 '''
             elif prev:
                 base = f"{root}assets/img/papers/{prev}"
-                url = m.get("project") or m.get("arxiv") or "#"
-                media = f'''            <a class="pub-media" href="{url}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+                url = m.get("project") or m.get("arxiv") or f"{base}.mp4"
+                preview_styles = []
+                if m.get("preview_aspect"):
+                    preview_styles.append(f'--preview-aspect: {m["preview_aspect"]}')
+                if m.get("preview_position"):
+                    preview_styles.append(f'--preview-position: {m["preview_position"]}')
+                aspect = f' style="{html.escape("; ".join(preview_styles), quote=True)}"' if preview_styles else ""
+                fit_class = " pub-media-contain" if m.get("preview_fit") == "contain" else ""
+                media = f'''            <a class="pub-media{fit_class}"{aspect} href="{url}" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
               <img src="{base}.jpg" alt="" loading="lazy" />
               <video muted loop playsinline preload="metadata" poster="{base}.jpg">
                 <source src="{base}.mp4" type="video/mp4" />
@@ -455,7 +546,7 @@ class Site:
                 bib = f'\n              <pre class="bib" id="bib-{slug}" hidden>{html.escape(m["bibtex"].strip())}</pre>'
             title_link = m.get("project") or m.get("arxiv")
             title_html = f'<a href="{title_link}" target="_blank" rel="noopener">{html.escape(p["title"])}</a>' if title_link else html.escape(p["title"])
-            cards.append(f'''          <li class="card pub">
+            cards.append(f'''          <li class="card pub{'' if media else ' pub-text-only'}">
 {media}            <div class="pub-body">
               <p class="pub-venue">{tags} {venue_full}</p>
               <h3 class="pub-title">{title_html}</h3>
@@ -492,7 +583,7 @@ class Site:
         cards = []
         for i, e in enumerate(entries):
             org = self.org_meta(e["org"])
-            note = e["note"] or org.get("note", "") if e["kind"] == "work" else org.get("note", "")
+            note = e["note"] or org.get("note", "")
             note_html = f'\n              <p class="exp-note">{note}</p>' if note else ""
             details = ""
             if e["items"]:
@@ -518,7 +609,11 @@ class Site:
         for i, e in enumerate(sorted(entries, key=lambda x: x["key"], reverse=True)):
             org = self.org_meta(e["org"])
             title = e["role"] + (f" · {e['note'].lower()}" if e["kind"] == "work" and e["note"] and "military" in e["note"].lower() else "")
+            if e["kind"] == "collaboration" and e["loc"]:
+                title += f" · {e['loc']}"
             sub = org.get("summary") or (e["items"][0] if e["items"] else "")
+            if e["kind"] == "collaboration":
+                sub = e["note"]
             hidden = ' class="tl-item tl-more" hidden' if i >= show else ' class="tl-item"'
             lis.append(f'''          <li{hidden}>
             {logo_tile(org, e["org"], "tl-logo", root)}
@@ -691,7 +786,7 @@ class Site:
           <h2>Vitæ</h2>
           <a class="more-link" href="vitae/index.html">Full CV →</a>
         </div>
-{self.timeline(work + edu, "", s.get("home_timeline", 3))}
+{self.timeline(work + edu + self.collaboration_entries(), "", s.get("home_timeline", 3))}
       </section>
 
       <!-- ================= Honors ================= -->
@@ -730,6 +825,11 @@ class Site:
 {self.exp_cards(work, "../")}
         </ul>
 
+        <h2 class="group-title">Research Collaborations</h2>
+        <ul class="exp-list">
+{self.exp_cards(self.collaboration_entries(), "../")}
+        </ul>
+
         <h2 class="group-title">Education</h2>
         <ul class="exp-list">
 {self.exp_cards(edu, "../")}
@@ -760,7 +860,12 @@ class Site:
 
     # Cache busting: append a content hash to local asset URLs so browsers pick up
     # new CSS/JS/images immediately after a deploy.
-    _VERSIONED = ("assets/css/style.css", "assets/js/main.js", "assets/img/profile.jpg")
+    _VERSIONED = (
+        "assets/css/style.css", "assets/js/main.js", "assets/img/profile.jpg",
+        "assets/img/papers/distractor-aware-colmap-free.jpg",
+        "assets/img/papers/distractor-aware-colmap-free.mp4",
+        "assets/img/papers/distractor-aware-colmap-free.webm",
+    )
 
     def _asset_hash(self, rel: str) -> str:
         p = ROOT / rel
@@ -784,6 +889,9 @@ class Site:
 def main(argv: list[str]) -> None:
     fetch = "--no-fetch" not in argv
     ensure_cv_source(fetch)
+    prepare_cv()
+    if "--prepare-cv" in argv:
+        return
     if "--pdf" in argv:
         build_pdf()
     if "--pdf" in argv or "--ci" in argv:
